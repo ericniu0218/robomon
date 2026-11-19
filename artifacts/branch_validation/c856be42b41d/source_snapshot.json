@@ -1,0 +1,33 @@
+{
+  "archive": "source.zip",
+  "archive_sha256": "831d59c29a061bac4807881728a3c629bcc6b8b301b89093eaafd02d04a1e43b",
+  "files": {
+    "robomon/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "robomon/analysis/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "robomon/analysis/conditional.py": "96493acb4f27e26bcfe6d520962002ed5471fd2492706598be302742fc986b3a",
+    "robomon/analysis/development.py": "87d3cebaf14023a571faf2e73c9d046a9451f816886a6c916f57c26cdab9ffd4",
+    "robomon/analysis/landmarks.py": "2001ca7c9c956140fd9e55ae7f94175f42b4ad5c5b1426fbee5ae7e6bed09c2a",
+    "robomon/branching.py": "f13984e29f67b34f077fb4e6b5f6ed470bc7895033236ad76fbea79d37ca595e",
+    "robomon/data/__init__.py": "98af3163c9cf8dae9ae8283a86a09c777d719ae65243e81808097af862861311",
+    "robomon/data/demos.py": "ba0f353b2af52afc0d588ea00db896b8d0ee590cac35ce309c66eab3daa63460",
+    "robomon/envs/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "robomon/envs/libero_session.py": "7c2b53a3895c774949f62e3f8af0a99ac905892e0ccf37ceb935b3ca60ee9144",
+    "robomon/monitors/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "robomon/monitors/bank.py": "47bcdea2f29331b2847dfc45d687558fc5c097cb248e5653d0bab58c57253e44",
+    "robomon/monitors/signals.py": "0e65c209613fcb1586ede088dd39d313101bfd81ed54313c7c9bac16f3d35b35",
+    "robomon/policy/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "robomon/policy/smolvla.py": "09410c9a5e6a255492ce5c660ddb2efe87fd92db6ee1f859f33b5db7264c44ea",
+    "robomon/rollout.py": "a3aa35ef1713533443bb6545d0415bd02c72d57e25e3e480d6e3b7005d7ffb37",
+    "robomon/splits.py": "78fef4338b9c7e31bd2a7ba380debcbf737f71a234ef80029696c19913346f94",
+    "robomon/utils/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "robomon/utils/artifacts.py": "01bfec57f8f49f32e2aac840ce62ee89efcbc67cd95a76ff39fa8fcd4f10dff0",
+    "robomon/utils/io.py": "67494cb1125e4975e6ea5f5e09d9b105115ee87eda3bfb15bc901e93f7193271",
+    "scripts/analyze_dev.py": "fe71f8775219cc4e2943fbe81916cf6d4f99e48ab9ab5365548360a267076835",
+    "scripts/analyze_h3_dev.py": "80f99ddfabdddcaeba360239b45e2c01d51566453082f77a7616268cde524728",
+    "scripts/build_demo_bank.py": "dd39a2a435266cd21847d831173954cc300a7a0f59f35baa84eed26a7fad697c",
+    "scripts/plot_dev.py": "9ed3c360394bfcf68982a8521a6256e686c768e8461575f76403d719c12705d7",
+    "scripts/run_dev.py": "3fa9510ed83b027fee95ed699c884014169509d53ec6f18f1360f847c6188eda",
+    "scripts/validate_runner.py": "52f16e43797b9b3f6f95815b1d8f882e70b4402a41b65eb078881a7f150b14f3"
+  },
+  "source_hash": "a07f195bf01bce58873ed2cf0c7e48d35577573d177753728a0fd4e1991f75cb"
+}

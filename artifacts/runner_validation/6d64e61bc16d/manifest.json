@@ -1,0 +1,36 @@
+{
+  "config": {
+    "args": {
+      "episodes": 1,
+      "suites": [
+        "libero_spatial",
+        "libero_object",
+        "libero_goal",
+        "libero_10"
+      ],
+      "threads": 4
+    },
+    "checkpoint_revision": "a24f1f380461b665158d52acd140152c79e8b36d",
+    "schema": 1,
+    "source_hash": "160a3f040466a4719c1656939a3bf67775228781a1e44f59c82669c92a680de3",
+    "stage": "runner_validation"
+  },
+  "config_hash": "6d64e61bc16d",
+  "git_sha": "56e8ecdb3be5e68f136b79e996f52900bae18253",
+  "packages": {
+    "hf-libero": "0.1.4",
+    "lerobot": "0.7.0",
+    "mujoco": "3.3.7",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "robosuite": "1.4.0",
+    "statsmodels": "0.15.0",
+    "torch": "2.15.0",
+    "transformers": "5.22.2"
+  },
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.12.13",
+  "source_hash": "160a3f040466a4719c1656939a3bf67775228781a1e44f59c82669c92a680de3",
+  "stage": "runner_validation",
+  "written_at": "2026-11-10T22:42:51-0800"
+}

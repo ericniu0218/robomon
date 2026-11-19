@@ -1,0 +1,31 @@
+{
+  "branch_seed": 4951644714822184161,
+  "budget": 170,
+  "checkpoint": 350,
+  "condition": "nominal",
+  "episode_id": "libero_10/8/3/679937630992262150/nominal",
+  "forward_steps": 170,
+  "horizon": 520,
+  "kind": "intervention",
+  "landmark": 350,
+  "match_id": "39dd4ebf056e",
+  "pair_id": "libero_10/8/3/679937630992262150",
+  "replicate": 0,
+  "reset_history": [
+    0,
+    0,
+    1,
+    1,
+    2,
+    2
+  ],
+  "reset_history_source": "legacy declared-order candidate; requires exact gate",
+  "restored_step": 300,
+  "rewind": 50,
+  "role": "alarm",
+  "score": 1.1548776409433839,
+  "seed": 4951644714822184161,
+  "success": false,
+  "task": "libero_10/8",
+  "wall_seconds": 9.839845416950993
+}

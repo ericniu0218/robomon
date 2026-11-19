@@ -1,0 +1,22 @@
+{
+  "brightness": 1.0,
+  "condition": "nominal",
+  "episode_id": "libero_spatial/6/9/7099810179315026984/nominal",
+  "init_state_id": 9,
+  "k": 8,
+  "monitor": true,
+  "monitor_query_seconds": 2.332866415963508,
+  "noise_sigma": 0.0,
+  "pair_id": "libero_spatial/6/9/7099810179315026984",
+  "queries": 5,
+  "query_interval": 25,
+  "seed": 7099810179315026984,
+  "shared_prefix": true,
+  "steps": 101,
+  "success": true,
+  "suite": "libero_spatial",
+  "task": "libero_spatial/6",
+  "task_id": 6,
+  "termination": "success",
+  "wall_seconds": 6.103851624997333
+}

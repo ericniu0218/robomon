@@ -1,0 +1,54 @@
+{
+  "auxiliary_sources": {
+    "diagnostic.py": "76a68e9bf241bccaf6caae17cf7e89923302827c9896a39a99eaff8936cd2d6c"
+  },
+  "config": {
+    "args": {
+      "attempts": 2,
+      "declared_reset_history": false,
+      "episode_id": "libero_10/8/3/679937630992262150/nominal",
+      "reconstructed_context": false,
+      "run": "artifacts/dev_rollouts/135f2c14e328",
+      "steps": 350
+    },
+    "diagnostic_sha": "76a68e9bf241bccaf6caae17cf7e89923302827c9896a39a99eaff8936cd2d6c",
+    "scope": "development engineering; not H4 inference",
+    "source_hash": "7582acaca2f249b1211c821bf5af556107779216f965335fe786070311ac35c7",
+    "stage": "replay_determinism",
+    "thread_env": {
+      "MKL_NUM_THREADS": null,
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null,
+      "VECLIB_MAXIMUM_THREADS": null
+    },
+    "trunk_manifest_sha": "d054dba6c3705aaddc25742070f869a901d78697550df23a43076fe4994a76f1"
+  },
+  "config_hash": "598d5d93c346",
+  "git_sha": "4c9402f6dc02ae301861dca9956a3b94df32bbde",
+  "packages": {
+    "av": "15.1.0",
+    "datasets": "5.2.0",
+    "hf-libero": "0.1.4",
+    "huggingface-hub": "1.33.0",
+    "lerobot": "0.7.0",
+    "mujoco": "3.3.7",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "pillow": "13.0.0",
+    "pyarrow": "26.0.1",
+    "robosuite": "1.4.0",
+    "safetensors": "0.8.0",
+    "scipy": "1.18.1",
+    "statsmodels": "0.15.0",
+    "tokenizers": "0.23.3",
+    "torch": "2.15.0",
+    "torchvision": "0.29.2",
+    "transformers": "5.22.2"
+  },
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.12.13",
+  "source_archive_sha256": "15bf0ece7d1bc88b3e258fb0d6d8ffe640bd79210e6e6ec7b170b9116089b7ce",
+  "source_hash": "7582acaca2f249b1211c821bf5af556107779216f965335fe786070311ac35c7",
+  "stage": "replay_determinism",
+  "written_at": "2026-11-11T14:53:23-0800"
+}

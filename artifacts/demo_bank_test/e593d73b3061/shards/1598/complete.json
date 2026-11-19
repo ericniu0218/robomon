@@ -1,0 +1,8 @@
+{
+  "config_hash": "5d426844536c",
+  "files": {
+    "embeddings.npy": "dc9752a6745098a1348acc1d4e1781e765bb86d616838873ef700e6fffaf273b",
+    "frames.parquet": "32b3d2370cbc9ff93395469a98d639fa71e3dcd51f686a3805c9499da41d5a40",
+    "inputs.json": "0b12c9d7531d5c8159617ef34aefc4eb904b63bd5fce0463e95f0c6f69c0c0bc"
+  }
+}

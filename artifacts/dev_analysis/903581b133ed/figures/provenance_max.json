@@ -1,0 +1,15 @@
+{
+  "files": {
+    "audit_max.png": "4ad67f4c68244058942bd6fb90367c2474984ba7a48b1a509be592556585497e",
+    "task_success.png": "ee47921c7153a17bf3c6fc18ec27b093c744f357c9a43f59d895d668c1ad6a48"
+  },
+  "palette": [
+    "#0072B2",
+    "#D55E00",
+    "#009E73",
+    "#000000"
+  ],
+  "reduction": "max for matched comparisons",
+  "scope": "development only",
+  "source_results_sha": "e534b47b49e9baf9a28db3408e1fc8142c1b07ea3f58f0508c56c3059349b203"
+}

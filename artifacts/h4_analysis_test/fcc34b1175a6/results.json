@@ -1,0 +1,1888 @@
+{
+  "branches": 1152,
+  "by_cell": [
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/1"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/1"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_10/1"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_10/1"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/1"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 2,
+      "task": "libero_10/1"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_10/1"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 5,
+      "task": "libero_10/1"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/2"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/2"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 0,
+      "task": "libero_10/2"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 0,
+      "task": "libero_10/2"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/2"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/2"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 0,
+      "task": "libero_10/2"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 0,
+      "task": "libero_10/2"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/3"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/3"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 4,
+      "task": "libero_10/3"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_10/3"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/3"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/3"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 5,
+      "task": "libero_10/3"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 5,
+      "task": "libero_10/3"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 2,
+      "task": "libero_10/4"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 2,
+      "task": "libero_10/4"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 1,
+      "task": "libero_10/4"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 2,
+      "task": "libero_10/4"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/4"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/4"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 0,
+      "task": "libero_10/4"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 0,
+      "task": "libero_10/4"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/5"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/5"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 2,
+      "task": "libero_10/5"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 1,
+      "task": "libero_10/5"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/5"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 3,
+      "task": "libero_10/5"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_10/5"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_10/5"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/7"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/7"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_10/7"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_10/7"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/7"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/7"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 0,
+      "task": "libero_10/7"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 2,
+      "task": "libero_10/7"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/9"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 3,
+      "task": "libero_10/9"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_10/9"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_10/9"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/9"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 2,
+      "task": "libero_10/9"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 5,
+      "task": "libero_10/9"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_10/9"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 3,
+      "task": "libero_goal/2"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 3,
+      "task": "libero_goal/2"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_goal/2"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_goal/2"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_goal/2"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 1,
+      "task": "libero_goal/2"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_goal/2"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_goal/2"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 3,
+      "task": "libero_goal/3"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 3,
+      "task": "libero_goal/3"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_goal/3"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 5,
+      "task": "libero_goal/3"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 2,
+      "task": "libero_goal/3"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 3,
+      "task": "libero_goal/3"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_goal/3"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 5,
+      "task": "libero_goal/3"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_goal/4"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 1,
+      "task": "libero_goal/4"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_goal/4"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_goal/4"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_goal/4"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 3,
+      "task": "libero_goal/4"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_goal/4"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_goal/4"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_goal/6"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_goal/6"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_goal/6"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_goal/6"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_goal/6"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_goal/6"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 1,
+      "task": "libero_goal/6"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 2,
+      "task": "libero_goal/6"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 6,
+      "task": "libero_goal/7"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 6,
+      "task": "libero_goal/7"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_goal/7"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_goal/7"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 3,
+      "task": "libero_goal/8"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 6,
+      "task": "libero_goal/8"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_goal/8"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_goal/8"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 3,
+      "task": "libero_goal/8"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 3,
+      "task": "libero_goal/8"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 0,
+      "task": "libero_goal/8"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 0,
+      "task": "libero_goal/8"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_goal/9"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 3,
+      "task": "libero_goal/9"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_goal/9"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_goal/9"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_goal/9"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 1,
+      "task": "libero_goal/9"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_goal/9"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 4,
+      "task": "libero_goal/9"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/1"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/1"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_object/1"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_object/1"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/1"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/1"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_object/1"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_object/1"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/4"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/4"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_object/4"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_object/4"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/4"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/4"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_object/4"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 4,
+      "task": "libero_object/4"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/5"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/5"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_object/5"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_object/5"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/5"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/5"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_object/5"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 5,
+      "task": "libero_object/5"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/6"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/6"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_object/6"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_object/6"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 3,
+      "task": "libero_object/6"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 3,
+      "task": "libero_object/6"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_object/6"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_object/6"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/7"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 2,
+      "task": "libero_object/7"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_object/7"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_object/7"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/7"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/7"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_object/7"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_object/7"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/8"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/8"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_object/8"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_object/8"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 3,
+      "task": "libero_object/8"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 3,
+      "task": "libero_object/8"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_object/8"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_object/8"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 3,
+      "task": "libero_object/9"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 2,
+      "task": "libero_object/9"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_object/9"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_object/9"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/9"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/9"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_object/9"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_object/9"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_spatial/1"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_spatial/1"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_spatial/1"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_spatial/1"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_spatial/1"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_spatial/1"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 0,
+      "task": "libero_spatial/1"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 2,
+      "task": "libero_spatial/1"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_spatial/2"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 2,
+      "task": "libero_spatial/2"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_spatial/2"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_spatial/2"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_spatial/2"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 3,
+      "task": "libero_spatial/2"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 2,
+      "task": "libero_spatial/2"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 2,
+      "task": "libero_spatial/2"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_spatial/3"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_spatial/3"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 0,
+      "task": "libero_spatial/3"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 0,
+      "task": "libero_spatial/3"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_spatial/3"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 1,
+      "task": "libero_spatial/3"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 0,
+      "task": "libero_spatial/3"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 0,
+      "task": "libero_spatial/3"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_spatial/4"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_spatial/4"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_spatial/4"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_spatial/4"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_spatial/4"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_spatial/4"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 2,
+      "task": "libero_spatial/4"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 4,
+      "task": "libero_spatial/4"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_spatial/5"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_spatial/5"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_spatial/5"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_spatial/5"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 4,
+      "task": "libero_spatial/5"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 1,
+      "task": "libero_spatial/5"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 6,
+      "task": "libero_spatial/5"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 5,
+      "task": "libero_spatial/5"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 1,
+      "task": "libero_spatial/8"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 2,
+      "task": "libero_spatial/8"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 1,
+      "task": "libero_spatial/8"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 0,
+      "task": "libero_spatial/8"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_spatial/8"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_spatial/8"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 2,
+      "task": "libero_spatial/8"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 2,
+      "task": "libero_spatial/8"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_spatial/9"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 1,
+      "task": "libero_spatial/9"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_spatial/9"
+    },
+    {
+      "branches": 6,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 1,
+      "task": "libero_spatial/9"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_spatial/9"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 2,
+      "task": "libero_spatial/9"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 1,
+      "task": "libero_spatial/9"
+    },
+    {
+      "branches": 6,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 2,
+      "task": "libero_spatial/9"
+    }
+  ],
+  "contrasts": {
+    "control_rollback_minus_replan_exploratory": {
+      "alpha": 0.05,
+      "ci_high": 0.14616490966443121,
+      "ci_low": -0.173942687442209,
+      "estimate": -0.013888888888888888,
+      "independent_seed_blocks": 288,
+      "interval": "Hoeffding; fixed selected states; Monte Carlo error only",
+      "negative": 19,
+      "positive": 15,
+      "radius_unclipped": 0.1600537985533201,
+      "zero": 254
+    },
+    "h4a_control_minus_alarm_replan": {
+      "alpha": 0.05,
+      "ci_high": 0.7294982429977646,
+      "ci_low": 0.4093906458911243,
+      "estimate": 0.5694444444444444,
+      "independent_seed_blocks": 288,
+      "interval": "Hoeffding; fixed selected states; Monte Carlo error only",
+      "negative": 6,
+      "positive": 170,
+      "radius_unclipped": 0.1600537985533201,
+      "zero": 112
+    },
+    "h4b_alarm_rollback_minus_replan": {
+      "alpha": 0.05,
+      "ci_high": 0.267692687442209,
+      "ci_low": -0.052414909664431214,
+      "estimate": 0.1076388888888889,
+      "independent_seed_blocks": 288,
+      "interval": "Hoeffding; fixed selected states; Monte Carlo error only",
+      "negative": 7,
+      "positive": 38,
+      "radius_unclipped": 0.1600537985533201,
+      "zero": 243
+    }
+  },
+  "freeze_commit": "5aca84453a411d9c3b8bc824415a0b95d79edd15",
+  "gates_passed": 192,
+  "matched_sets": 96,
+  "rates": {
+    "alarm_replan": 0.125,
+    "alarm_rollback": 0.2326388888888889,
+    "control_replan": 0.6944444444444444,
+    "control_rollback": 0.6805555555555556
+  },
+  "replicates_per_state_arm": 3,
+  "sequence_decisions": [
+    {
+      "decision": "supported",
+      "hypothesis": "H1",
+      "interval": {
+        "bootstrap_degenerate": 0,
+        "bootstrap_valid": 2000,
+        "ci_high": 0.7774641131344039,
+        "ci_low": 0.7134300185521454,
+        "cluster": "pair_id",
+        "estimate": 0.7461387038158692,
+        "informative_strata": 333,
+        "missing_scores": 0,
+        "n_boot": 2000,
+        "pairs": 13208.0,
+        "reduction": "mean",
+        "rows": 7038,
+        "seed": 20261111,
+        "signal": "consistency",
+        "status": "ok",
+        "total_strata": 735
+      },
+      "null": 0.5
+    },
+    {
+      "decision": "supported",
+      "hypothesis": "H3",
+      "interval": {
+        "ci_high": 1.728361562397113,
+        "ci_low": 1.0459227932986552,
+        "coef": 1.4154930559323464,
+        "status": "ok"
+      },
+      "null": 0.0
+    },
+    {
+      "decision": "supported",
+      "hypothesis": "H4a",
+      "interval": {
+        "alpha": 0.05,
+        "ci_high": 0.7294982429977646,
+        "ci_low": 0.4093906458911243,
+        "estimate": 0.5694444444444444,
+        "independent_seed_blocks": 288,
+        "interval": "Hoeffding; fixed selected states; Monte Carlo error only",
+        "negative": 6,
+        "positive": 170,
+        "radius_unclipped": 0.1600537985533201,
+        "status": "ok",
+        "zero": 112
+      },
+      "null": 0.0
+    },
+    {
+      "decision": "not_established",
+      "hypothesis": "H4b",
+      "interval": {
+        "alpha": 0.05,
+        "ci_high": 0.267692687442209,
+        "ci_low": -0.052414909664431214,
+        "estimate": 0.1076388888888889,
+        "independent_seed_blocks": 288,
+        "interval": "Hoeffding; fixed selected states; Monte Carlo error only",
+        "negative": 7,
+        "positive": 38,
+        "radius_unclipped": 0.1600537985533201,
+        "status": "ok",
+        "zero": 243
+      },
+      "null": 0.0
+    }
+  ],
+  "states": 192,
+  "status": "held-out; frozen protocol",
+  "target": "equal-weight mean over fixed selected matched states and fresh policy/pixel noise"
+}

@@ -1,0 +1,164 @@
+{
+  "attempts": [
+    {
+      "arrays_sha": "7dd5d5419ffa87d294894c0dd87389ccfdcac3ecd3550ac82234a012ff69d65c",
+      "attempt": 0,
+      "body_names": [
+        "world",
+        "table",
+        "robot0_base",
+        "robot0_link0",
+        "robot0_link1",
+        "robot0_link2",
+        "robot0_link3",
+        "robot0_link4",
+        "robot0_link5",
+        "robot0_link6",
+        "robot0_link7",
+        "robot0_right_hand",
+        "gripper0_right_gripper",
+        "gripper0_eef",
+        "gripper0_leftfinger",
+        "gripper0_finger_joint1_tip",
+        "gripper0_rightfinger",
+        "gripper0_finger_joint2_tip",
+        "mount0_base",
+        "mount0_controller_box",
+        "mount0_pedestal_feet",
+        "mount0_torso",
+        "mount0_pedestal",
+        "moka_pot_1_main",
+        "moka_pot_2_main",
+        "flat_stove_1_main",
+        "flat_stove_1_base",
+        "flat_stove_1_burner",
+        "flat_stove_1_burner_plate",
+        "flat_stove_1_button"
+      ],
+      "compiled_model_differences_vs_first_attempt": {},
+      "object_property_initializers": 3,
+      "replayed_prior_resets": null,
+      "reset_state_vs_first_attempt": null,
+      "states_vs_recorded_trunk": {
+        "elements": 6100,
+        "first_index": [
+          183,
+          9
+        ],
+        "max_abs": 0.014077802622353475,
+        "nonfinite_mismatches": 0
+      },
+      "traces_vs_first_attempt": {},
+      "xml_sha": "e782b10065f6cced7fe5587d27e60924aff0efeea873605cbd73a1f41a3efe7d"
+    },
+    {
+      "arrays_sha": "b2ff274f6c0de7f722fe3930823dab094b2d2f4ae1c6db1852ca239fa8810858",
+      "attempt": 1,
+      "body_names": [
+        "world",
+        "table",
+        "robot0_base",
+        "robot0_link0",
+        "robot0_link1",
+        "robot0_link2",
+        "robot0_link3",
+        "robot0_link4",
+        "robot0_link5",
+        "robot0_link6",
+        "robot0_link7",
+        "robot0_right_hand",
+        "gripper0_right_gripper",
+        "gripper0_eef",
+        "gripper0_leftfinger",
+        "gripper0_finger_joint1_tip",
+        "gripper0_rightfinger",
+        "gripper0_finger_joint2_tip",
+        "mount0_base",
+        "mount0_controller_box",
+        "mount0_pedestal_feet",
+        "mount0_torso",
+        "mount0_pedestal",
+        "moka_pot_1_main",
+        "moka_pot_2_main",
+        "flat_stove_1_main",
+        "flat_stove_1_base",
+        "flat_stove_1_burner",
+        "flat_stove_1_burner_plate",
+        "flat_stove_1_button"
+      ],
+      "compiled_model_differences_vs_first_attempt": {
+        "body_pos": {
+          "elements": 2,
+          "first_index": [
+            25,
+            0
+          ],
+          "max_abs": 0.007955352386643133,
+          "nonfinite_mismatches": 0
+        }
+      },
+      "object_property_initializers": 4,
+      "replayed_prior_resets": null,
+      "reset_state_vs_first_attempt": null,
+      "states_vs_recorded_trunk": {
+        "elements": 6984,
+        "first_index": [
+          183,
+          9
+        ],
+        "max_abs": 0.6157830501098269,
+        "nonfinite_mismatches": 0
+      },
+      "traces_vs_first_attempt": {
+        "ctrl": {
+          "elements": 1167,
+          "first_index": [
+            183,
+            0
+          ],
+          "max_abs": 0.23888864227186346,
+          "nonfinite_mismatches": 0
+        },
+        "qacc": {
+          "elements": 3465,
+          "first_index": [
+            183,
+            0
+          ],
+          "max_abs": 457.9888803728926,
+          "nonfinite_mismatches": 0
+        },
+        "qacc_warmstart": {
+          "elements": 3465,
+          "first_index": [
+            183,
+            0
+          ],
+          "max_abs": 457.9888803728926,
+          "nonfinite_mismatches": 0
+        },
+        "qfrc_constraint": {
+          "elements": 2477,
+          "first_index": [
+            183,
+            0
+          ],
+          "max_abs": 1.524016444694532,
+          "nonfinite_mismatches": 0
+        },
+        "state": {
+          "elements": 6982,
+          "first_index": [
+            183,
+            21
+          ],
+          "max_abs": 0.6162388767080722,
+          "nonfinite_mismatches": 0
+        }
+      },
+      "xml_sha": "e782b10065f6cced7fe5587d27e60924aff0efeea873605cbd73a1f41a3efe7d"
+    }
+  ],
+  "complete": true,
+  "scope": "development engineering; not H4 inference"
+}

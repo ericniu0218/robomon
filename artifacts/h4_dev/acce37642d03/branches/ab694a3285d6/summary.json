@@ -1,0 +1,22 @@
+{
+  "branch_seed": 7689260825141788502,
+  "budget": 470,
+  "checkpoint": 50,
+  "condition": "nominal",
+  "episode_id": "libero_10/6/8/6782596543919675628/nominal",
+  "forward_steps": 470,
+  "horizon": 520,
+  "kind": "intervention",
+  "landmark": 50,
+  "match_id": "a604e05ffe61",
+  "pair_id": "libero_10/6/8/6782596543919675628",
+  "replicate": 1,
+  "restored_step": 0,
+  "rewind": 50,
+  "role": "alarm",
+  "score": 1.1629728503103272,
+  "seed": 7689260825141788502,
+  "success": false,
+  "task": "libero_10/6",
+  "wall_seconds": 7.587007208960131
+}

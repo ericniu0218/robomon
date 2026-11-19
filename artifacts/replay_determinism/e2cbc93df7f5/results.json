@@ -1,0 +1,22 @@
+{
+  "attempts": [
+    {
+      "arrays_sha": "7dd5d5419ffa87d294894c0dd87389ccfdcac3ecd3550ac82234a012ff69d65c",
+      "attempt": 0,
+      "compiled_model_differences_vs_first_attempt": {},
+      "reset_state_vs_first_attempt": null,
+      "states_vs_recorded_trunk": {
+        "elements": 6100,
+        "first_index": [
+          183,
+          9
+        ],
+        "max_abs": 0.014077802622353475
+      },
+      "traces_vs_first_attempt": {},
+      "xml_sha": "e782b10065f6cced7fe5587d27e60924aff0efeea873605cbd73a1f41a3efe7d"
+    }
+  ],
+  "complete": false,
+  "scope": "development engineering; not H4 inference"
+}

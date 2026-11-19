@@ -1,0 +1,8 @@
+{
+  "config_hash": "a1328f372469",
+  "files": {
+    "arrays.npz": "e703d0def97316d452d32ac13ac15af7e882c4fcf23d6cec408a2c900e665499",
+    "events.parquet": "cec23ae2baaa5eb33c90ada058813ae8f9574dceaec7433296ccd7edabbb3e30",
+    "summary.json": "5fe17018398c493afcc567e7e7f825fb9c789f85ee53386b3f6a3e18ea0303ba"
+  }
+}

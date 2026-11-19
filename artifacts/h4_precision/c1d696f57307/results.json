@@ -1,0 +1,42 @@
+{
+  "alpha": 0.05,
+  "limitations": "Not power; no new-state/task uncertainty; assumes every planned exact match is available; no sample-size adaptation to outcomes.",
+  "minimum_independent_blocks_for_target": 738,
+  "scenarios": [
+    {
+      "hoeffding_radius": 0.3597698803555063,
+      "independent_seed_blocks": 57,
+      "intervention_branches": 228,
+      "intervention_branches_for_target_radius": 2964,
+      "known_answer_gates": 38,
+      "matched_sets": 19,
+      "replicates": 3,
+      "replicates_for_target_radius": 39,
+      "selected_states": 38
+    },
+    {
+      "hoeffding_radius": 0.20955961346737229,
+      "independent_seed_blocks": 168,
+      "intervention_branches": 672,
+      "intervention_branches_for_target_radius": 3136,
+      "known_answer_gates": 112,
+      "matched_sets": 56,
+      "replicates": 3,
+      "replicates_for_target_radius": 14,
+      "selected_states": 112
+    },
+    {
+      "hoeffding_radius": 0.17533015176408231,
+      "independent_seed_blocks": 240,
+      "intervention_branches": 960,
+      "intervention_branches_for_target_radius": 3200,
+      "known_answer_gates": 160,
+      "matched_sets": 80,
+      "replicates": 3,
+      "replicates_for_target_radius": 10,
+      "selected_states": 160
+    }
+  ],
+  "scope": "prospective fixed-state Monte Carlo precision; no outcomes read",
+  "target_radius": 0.1
+}

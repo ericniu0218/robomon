@@ -1,0 +1,3637 @@
+{
+  "auxiliary_sources": {},
+  "config": {
+    "alarm": {
+      "comparison": ">=",
+      "episodes": 192,
+      "interpolation": "higher",
+      "nominal_episode_alarm_fraction": 0.25,
+      "population": "one maximum per eligible nominal dev episode, all outcomes",
+      "quantile": 0.75,
+      "reduction": "causal running maximum including shadow queries",
+      "signal": "consistency",
+      "threshold": 0.9963464299006517
+    },
+    "analysis_manifest_sha": "89e7e6cf379f43844411bdceb1917a024e56118bd5b116afc9c076105cd1bbf2",
+    "args": {
+      "analysis": "artifacts/dev_analysis/903581b133ed",
+      "pairs_per_cell": 1,
+      "quantile": 0.75,
+      "seed": 20261111
+    },
+    "landmarks_sha": "945af0e40dc08fc7f80937e0c1540a900a0cc99548eaac3d789abc14aa549d69",
+    "matching": "first eligible crossing; exact task/condition/landmark; disjoint source pairs; hash-ordered greedy",
+    "protocol_sha": "614de56f46e64680d230698681808cbc184a29725765a33c22fab839ceb310e8",
+    "protocol_text": "# H4 development pilot protocol \u2014 2026-11-11\n\n**Development only. Written before inspecting intervention outcomes. This does not freeze or open\nthe held-out study.** The purpose is to exercise alarm selection, exact controls, restoration,\npaired branch execution, missing coverage and finite-state analysis end to end.\n\n## Alarm and eligible states\n\n- Use the H1 development candidate: causal running-max consistency, including shadow queries.\n- Calibrate one global threshold from the **75th percentile**, with `higher` interpolation, of\n  nominal development episodes' maxima over eligible boundaries. Use one maximum per episode,\n  regardless of terminal success/failure. This weights episodes equally and is not a false-alarm\n  guarantee, a conformal threshold, or an optimization against intervention results.\n- Evaluate only live execution boundaries `t = 50, 100, \u2026`, with at least 50 forward actions left\n  in the fixed benchmark horizon. Query histories must be complete from step zero in increments\n  of 25; only first-query consistency is missing. The score at t uses observations through t.\n- Threshold comparison is `score >= threshold`. Each episode supplies only its **first eligible**\n  crossing; crossing at a shadow query is acted upon at the next eligible execution boundary.\n\n## Matching and sample size\n\n- Every alarm state requires a live control with `score < threshold` at the **same task, condition\n  and timestep**. No nearest-time/task substitute is allowed. Controls may cross the threshold\n  later; their future score is not an eligibility criterion.\n- No terminal labels enter calibration or matching. Both scripts project only episode/pair/task/\n  condition/landmark IDs and consistency out of the development landmark file.\n- Deterministically sort candidate alarms by SHA-256 of selection seed 20261111 and episode ID.\n  Sort each alarm's controls by a separate hash of seed, alarm ID and control ID. Greedily accept\n  the first available control, with **one matched set per task/condition** in this pilot.\n- Each original nominal/shift **source pair ID may appear only once in the whole selection**.\n  Thus neither episode nor its paired-condition counterpart is reused as alarm/control elsewhere.\n  Report all 24 task/condition cells, first alarms, exact-control availability and selected counts.\n- Freeze the selected states in a content-addressed selection artifact before branch execution.\n  This declared greedy sample is not uniform sampling of every possible alarm state. Missing cells\n  limit its scope; no replacement states are chosen after seeing outcomes.\n\n## Branches, random numbers and gates\n\n- **Reset-context amendment (development engineering):** the initial pilot stopped before its\n  ninth gate because `libero_10/8` replay diverged at action 184. LIBERO accumulates\n  `object_property_initializers` across hard resets. Their RNG draws change the static stove's\n  `model.body_pos`, which the saved qpos/qvel vector omits. The failed partial run is retained as\n  `artifacts/h4_dev/acce37642d03/`; it is not analyzed as an H4 result.\n- Reconstruct the original sequence of prior same-task resets once per selected state. Preserve\n  its pre-reset property-sampler list and restore that list before each branch reset. The complete\n  native reset, settle and action-prefix paths then run as originally recorded. For legacy trunks,\n  declared episode order supplies a **candidate** history, accepted only if the exact gate passes.\n  New trunks record actual reset context and static body poses/quaternions explicitly.\n- At **every** selected alarm and control state, first run the original-seed, no-rollback control.\n  It must exactly reproduce the recorded future actions, physics states, first embedding and\n  terminal outcome. A failure aborts the experiment; an arm is never substituted or silently dropped.\n  The replacement pilot completes all selected-state gates before opening any intervention arms.\n- Restore state by reset plus exact prefix-action replay. Verify every replayed physics state.\n  The gate additionally checks the controller/observable/render history through its future trace.\n- For each matched set, draw **three** fresh branch seed blocks. Derive each seed from base\n  20261111, matched-set ID and replicate index. Use that same seed for both states and both arms\n  within a block, and distinct seeds across blocks. This pairs future policy and pixel noise.\n- At each state, compare **replan in place** (`rewind=0`) with **oracle rollback by one chunk**\n  (`rewind=50`). Each arm receives exactly `benchmark_horizon - t` forward actions, ending early\n  on success. Rollback loses 50 actions of physical progress and receives no extra forward budget.\n- Pixel and execution seeds use the logical branch clock t, including after rollback. Known-answer\n  gates are engineering checks, not extra independent intervention samples.\n- Use the trunk's pinned checkpoint, MPS backend, package versions and always-render path. Check\n  real session horizons against the declared horizons before execution. Save each branch atomically\n  with summary, actions/states/first embedding, completion checksums, source archive and run lock.\n\n## Estimands and uncertainty\n\nThe endpoint is success before the equal remaining forward-action budget expires. Weight selected\nmatched sets equally, with equal numbers of seed replicates. Preserve all four outcomes of each seed\nblock together:\n\n- **H4a diagnostic:** mean(`control replan success - alarm replan success`). Positive values mean\n  the selected alarm states are less salvageable by a fresh replan than their exact controls.\n- **H4b diagnostic:** mean(`alarm rollback success - alarm replan success`). Positive values mean\n  the simulation-only rollback intervention helps at these selected alarm states.\n- Control rollback-minus-replan is retained as an exploratory comparison.\n\nReport counts, rates and the positive/zero/negative paired differences. A block difference is in\n[-1, 1]. Independent branch seed blocks give the conservative two-sided Hoeffding radius\n`sqrt(2 * log(2 / alpha) / N)` for the mean, clipped to [-1, 1], with `alpha=0.05` **pointwise** in\nthis development pilot. This follows from the bounded-independent-variables inequality in\n[Guntuboyina's STAT 210B notes, Theorem 3.1, p. 13](https://www.stat.berkeley.edu/~aditya/resources/FullNotes210BSpring2018.pdf).\nThe sample size N is matched sets \u00d7 replicates, never the number of arms or simulator steps.\n\nThese are **Monte Carlo bounds conditional on the fixed selected states**, under independent\npseudorandom seed streams. They do not cover dev selection bias, new initial states, new tasks or\nreal-robot transfer. Bounds stay wide when all observed paired differences are zero. A bootstrap\nover three branches per state could instead spuriously collapse in that case.\n\nDo not use this pilot to confirm H4, claim a deployment policy, or interpret reset/replay compute\nas physical recovery time. Before test data, freeze sample-size/selection rules, the target\npopulation, confidence/multiplicity procedures and the remaining H1/H3 protocol. Any change driven\nby this pilot must be recorded as development.\n\nThe historical development run reused native cores. Its nominal/shift episodes share qpos/qvel\ninitial-state IDs and policy seeds, but tasks with accumulated property samplers need not share\nstatic fixture poses. Their success-rate difference is therefore descriptive, not an isolated\nvisual-shift effect. Future `run_dev.py` runs default to isolated cores per episode; development\ncalibration under that reset regime is required before the held-out freeze. Historical results\nare retained and must not be pooled with that replacement calibration.\n",
+    "rollout_config": {
+      "args": {
+        "brightness": 0.6,
+        "conditions": [
+          "nominal",
+          "shift"
+        ],
+        "device": "mps",
+        "episodes": 16,
+        "k": 8,
+        "noise_sigma": 10.0,
+        "render_mode": "always",
+        "seed": 20261110,
+        "shared_prefix": true,
+        "suites": [
+          "libero_spatial",
+          "libero_object",
+          "libero_goal",
+          "libero_10"
+        ],
+        "task_ids": null,
+        "threads": 4
+      },
+      "checkpoint": "lerobot/smolvla_libero",
+      "checkpoint_revision": "a24f1f380461b665158d52acd140152c79e8b36d",
+      "embedding_definition": "smolvla.prefix_input_masked_mean.batch1.v1",
+      "episodes": [
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 0,
+          "noise_sigma": 0.0,
+          "seed": 6983315757510167199,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 0,
+          "noise_sigma": 10.0,
+          "seed": 6983315757510167199,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 1,
+          "noise_sigma": 0.0,
+          "seed": 5411900829910326391,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 1,
+          "noise_sigma": 10.0,
+          "seed": 5411900829910326391,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 2,
+          "noise_sigma": 0.0,
+          "seed": 1508152594704719135,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 2,
+          "noise_sigma": 10.0,
+          "seed": 1508152594704719135,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 3,
+          "noise_sigma": 0.0,
+          "seed": 1692383069431539774,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 3,
+          "noise_sigma": 10.0,
+          "seed": 1692383069431539774,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 4,
+          "noise_sigma": 0.0,
+          "seed": 9030840542685780788,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 4,
+          "noise_sigma": 10.0,
+          "seed": 9030840542685780788,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 5,
+          "noise_sigma": 0.0,
+          "seed": 8948563265926296384,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 5,
+          "noise_sigma": 10.0,
+          "seed": 8948563265926296384,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 6,
+          "noise_sigma": 0.0,
+          "seed": 4083776748013588479,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 6,
+          "noise_sigma": 10.0,
+          "seed": 4083776748013588479,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 7,
+          "noise_sigma": 0.0,
+          "seed": 1445722047428275584,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 7,
+          "noise_sigma": 10.0,
+          "seed": 1445722047428275584,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 8,
+          "noise_sigma": 0.0,
+          "seed": 7717156682606532898,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 8,
+          "noise_sigma": 10.0,
+          "seed": 7717156682606532898,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 9,
+          "noise_sigma": 0.0,
+          "seed": 746505839580300895,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 9,
+          "noise_sigma": 10.0,
+          "seed": 746505839580300895,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 10,
+          "noise_sigma": 0.0,
+          "seed": 8853977372214341127,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 10,
+          "noise_sigma": 10.0,
+          "seed": 8853977372214341127,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 11,
+          "noise_sigma": 0.0,
+          "seed": 4951893933232369987,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 11,
+          "noise_sigma": 10.0,
+          "seed": 4951893933232369987,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 12,
+          "noise_sigma": 0.0,
+          "seed": 7628220462475096739,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 12,
+          "noise_sigma": 10.0,
+          "seed": 7628220462475096739,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 13,
+          "noise_sigma": 0.0,
+          "seed": 3007354775762167091,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 13,
+          "noise_sigma": 10.0,
+          "seed": 3007354775762167091,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 14,
+          "noise_sigma": 0.0,
+          "seed": 1061666661766435133,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 14,
+          "noise_sigma": 10.0,
+          "seed": 1061666661766435133,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 15,
+          "noise_sigma": 0.0,
+          "seed": 4673534548990879966,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 15,
+          "noise_sigma": 10.0,
+          "seed": 4673534548990879966,
+          "suite": "libero_spatial",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 0,
+          "noise_sigma": 0.0,
+          "seed": 7825706300978412140,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 0,
+          "noise_sigma": 10.0,
+          "seed": 7825706300978412140,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 1,
+          "noise_sigma": 0.0,
+          "seed": 4063961913524826406,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 1,
+          "noise_sigma": 10.0,
+          "seed": 4063961913524826406,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 2,
+          "noise_sigma": 0.0,
+          "seed": 8928000091566404671,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 2,
+          "noise_sigma": 10.0,
+          "seed": 8928000091566404671,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 3,
+          "noise_sigma": 0.0,
+          "seed": 7250421894445266378,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 3,
+          "noise_sigma": 10.0,
+          "seed": 7250421894445266378,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 4,
+          "noise_sigma": 0.0,
+          "seed": 2570005725540544107,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 4,
+          "noise_sigma": 10.0,
+          "seed": 2570005725540544107,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 5,
+          "noise_sigma": 0.0,
+          "seed": 3307531485217056299,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 5,
+          "noise_sigma": 10.0,
+          "seed": 3307531485217056299,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 6,
+          "noise_sigma": 0.0,
+          "seed": 2693981512077565850,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 6,
+          "noise_sigma": 10.0,
+          "seed": 2693981512077565850,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 7,
+          "noise_sigma": 0.0,
+          "seed": 524321500932646234,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 7,
+          "noise_sigma": 10.0,
+          "seed": 524321500932646234,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 8,
+          "noise_sigma": 0.0,
+          "seed": 3784006082144057351,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 8,
+          "noise_sigma": 10.0,
+          "seed": 3784006082144057351,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 9,
+          "noise_sigma": 0.0,
+          "seed": 7099810179315026984,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 9,
+          "noise_sigma": 10.0,
+          "seed": 7099810179315026984,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 10,
+          "noise_sigma": 0.0,
+          "seed": 6395071251119945557,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 10,
+          "noise_sigma": 10.0,
+          "seed": 6395071251119945557,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 11,
+          "noise_sigma": 0.0,
+          "seed": 4475246334838246455,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 11,
+          "noise_sigma": 10.0,
+          "seed": 4475246334838246455,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 12,
+          "noise_sigma": 0.0,
+          "seed": 7562664843676563365,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 12,
+          "noise_sigma": 10.0,
+          "seed": 7562664843676563365,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 13,
+          "noise_sigma": 0.0,
+          "seed": 1339140229732602400,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 13,
+          "noise_sigma": 10.0,
+          "seed": 1339140229732602400,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 14,
+          "noise_sigma": 0.0,
+          "seed": 4429044089408722026,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 14,
+          "noise_sigma": 10.0,
+          "seed": 4429044089408722026,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 15,
+          "noise_sigma": 0.0,
+          "seed": 2863687496312476738,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 15,
+          "noise_sigma": 10.0,
+          "seed": 2863687496312476738,
+          "suite": "libero_spatial",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 0,
+          "noise_sigma": 0.0,
+          "seed": 809302245839677774,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 0,
+          "noise_sigma": 10.0,
+          "seed": 809302245839677774,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 1,
+          "noise_sigma": 0.0,
+          "seed": 3288865571712260368,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 1,
+          "noise_sigma": 10.0,
+          "seed": 3288865571712260368,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 2,
+          "noise_sigma": 0.0,
+          "seed": 2417072591816082046,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 2,
+          "noise_sigma": 10.0,
+          "seed": 2417072591816082046,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 3,
+          "noise_sigma": 0.0,
+          "seed": 5678032417120911198,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 3,
+          "noise_sigma": 10.0,
+          "seed": 5678032417120911198,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 4,
+          "noise_sigma": 0.0,
+          "seed": 7322879780001858670,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 4,
+          "noise_sigma": 10.0,
+          "seed": 7322879780001858670,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 5,
+          "noise_sigma": 0.0,
+          "seed": 1962711275667383055,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 5,
+          "noise_sigma": 10.0,
+          "seed": 1962711275667383055,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 6,
+          "noise_sigma": 0.0,
+          "seed": 4249195909989155848,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 6,
+          "noise_sigma": 10.0,
+          "seed": 4249195909989155848,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 7,
+          "noise_sigma": 0.0,
+          "seed": 4940120029416250416,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 7,
+          "noise_sigma": 10.0,
+          "seed": 4940120029416250416,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 8,
+          "noise_sigma": 0.0,
+          "seed": 3959098230253888230,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 8,
+          "noise_sigma": 10.0,
+          "seed": 3959098230253888230,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 9,
+          "noise_sigma": 0.0,
+          "seed": 8890540595096314410,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 9,
+          "noise_sigma": 10.0,
+          "seed": 8890540595096314410,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 10,
+          "noise_sigma": 0.0,
+          "seed": 7742918449166862636,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 10,
+          "noise_sigma": 10.0,
+          "seed": 7742918449166862636,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 11,
+          "noise_sigma": 0.0,
+          "seed": 2428867666156136244,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 11,
+          "noise_sigma": 10.0,
+          "seed": 2428867666156136244,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 12,
+          "noise_sigma": 0.0,
+          "seed": 47413098656040469,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 12,
+          "noise_sigma": 10.0,
+          "seed": 47413098656040469,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 13,
+          "noise_sigma": 0.0,
+          "seed": 7394298179917340300,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 13,
+          "noise_sigma": 10.0,
+          "seed": 7394298179917340300,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 14,
+          "noise_sigma": 0.0,
+          "seed": 6128871504658046228,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 14,
+          "noise_sigma": 10.0,
+          "seed": 6128871504658046228,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 15,
+          "noise_sigma": 0.0,
+          "seed": 418942736236709240,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 15,
+          "noise_sigma": 10.0,
+          "seed": 418942736236709240,
+          "suite": "libero_spatial",
+          "task_id": 7
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 0,
+          "noise_sigma": 0.0,
+          "seed": 5014353851539973873,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 0,
+          "noise_sigma": 10.0,
+          "seed": 5014353851539973873,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 1,
+          "noise_sigma": 0.0,
+          "seed": 163780116177536131,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 1,
+          "noise_sigma": 10.0,
+          "seed": 163780116177536131,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 2,
+          "noise_sigma": 0.0,
+          "seed": 828523291878779775,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 2,
+          "noise_sigma": 10.0,
+          "seed": 828523291878779775,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 3,
+          "noise_sigma": 0.0,
+          "seed": 1636975690510262298,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 3,
+          "noise_sigma": 10.0,
+          "seed": 1636975690510262298,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 4,
+          "noise_sigma": 0.0,
+          "seed": 5195627390346470695,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 4,
+          "noise_sigma": 10.0,
+          "seed": 5195627390346470695,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 5,
+          "noise_sigma": 0.0,
+          "seed": 1315174097662528975,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 5,
+          "noise_sigma": 10.0,
+          "seed": 1315174097662528975,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 6,
+          "noise_sigma": 0.0,
+          "seed": 4705120919054386069,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 6,
+          "noise_sigma": 10.0,
+          "seed": 4705120919054386069,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 7,
+          "noise_sigma": 0.0,
+          "seed": 2906119512117032079,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 7,
+          "noise_sigma": 10.0,
+          "seed": 2906119512117032079,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 8,
+          "noise_sigma": 0.0,
+          "seed": 3374518278191693363,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 8,
+          "noise_sigma": 10.0,
+          "seed": 3374518278191693363,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 9,
+          "noise_sigma": 0.0,
+          "seed": 7955094062924015718,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 9,
+          "noise_sigma": 10.0,
+          "seed": 7955094062924015718,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 10,
+          "noise_sigma": 0.0,
+          "seed": 5199558298898468642,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 10,
+          "noise_sigma": 10.0,
+          "seed": 5199558298898468642,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 11,
+          "noise_sigma": 0.0,
+          "seed": 7631271393911929961,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 11,
+          "noise_sigma": 10.0,
+          "seed": 7631271393911929961,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 12,
+          "noise_sigma": 0.0,
+          "seed": 890767918842594926,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 12,
+          "noise_sigma": 10.0,
+          "seed": 890767918842594926,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 13,
+          "noise_sigma": 0.0,
+          "seed": 3816087687183175799,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 13,
+          "noise_sigma": 10.0,
+          "seed": 3816087687183175799,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 14,
+          "noise_sigma": 0.0,
+          "seed": 791784165217987885,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 14,
+          "noise_sigma": 10.0,
+          "seed": 791784165217987885,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 15,
+          "noise_sigma": 0.0,
+          "seed": 2249634050195206233,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 15,
+          "noise_sigma": 10.0,
+          "seed": 2249634050195206233,
+          "suite": "libero_object",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 0,
+          "noise_sigma": 0.0,
+          "seed": 6089969868496037194,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 0,
+          "noise_sigma": 10.0,
+          "seed": 6089969868496037194,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 1,
+          "noise_sigma": 0.0,
+          "seed": 7648297338835271893,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 1,
+          "noise_sigma": 10.0,
+          "seed": 7648297338835271893,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 2,
+          "noise_sigma": 0.0,
+          "seed": 1597687774843509318,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 2,
+          "noise_sigma": 10.0,
+          "seed": 1597687774843509318,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 3,
+          "noise_sigma": 0.0,
+          "seed": 2724485566081520929,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 3,
+          "noise_sigma": 10.0,
+          "seed": 2724485566081520929,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 4,
+          "noise_sigma": 0.0,
+          "seed": 8194784021890580043,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 4,
+          "noise_sigma": 10.0,
+          "seed": 8194784021890580043,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 5,
+          "noise_sigma": 0.0,
+          "seed": 2824030120551681417,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 5,
+          "noise_sigma": 10.0,
+          "seed": 2824030120551681417,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 6,
+          "noise_sigma": 0.0,
+          "seed": 7302532265866006638,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 6,
+          "noise_sigma": 10.0,
+          "seed": 7302532265866006638,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 7,
+          "noise_sigma": 0.0,
+          "seed": 2227190209896659360,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 7,
+          "noise_sigma": 10.0,
+          "seed": 2227190209896659360,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 8,
+          "noise_sigma": 0.0,
+          "seed": 5474475051915109861,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 8,
+          "noise_sigma": 10.0,
+          "seed": 5474475051915109861,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 9,
+          "noise_sigma": 0.0,
+          "seed": 9056504947749413709,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 9,
+          "noise_sigma": 10.0,
+          "seed": 9056504947749413709,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 10,
+          "noise_sigma": 0.0,
+          "seed": 3791156926486116020,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 10,
+          "noise_sigma": 10.0,
+          "seed": 3791156926486116020,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 11,
+          "noise_sigma": 0.0,
+          "seed": 7401377329800646057,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 11,
+          "noise_sigma": 10.0,
+          "seed": 7401377329800646057,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 12,
+          "noise_sigma": 0.0,
+          "seed": 3494032422157873522,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 12,
+          "noise_sigma": 10.0,
+          "seed": 3494032422157873522,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 13,
+          "noise_sigma": 0.0,
+          "seed": 1593897847070062435,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 13,
+          "noise_sigma": 10.0,
+          "seed": 1593897847070062435,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 14,
+          "noise_sigma": 0.0,
+          "seed": 5614167558677214480,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 14,
+          "noise_sigma": 10.0,
+          "seed": 5614167558677214480,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 15,
+          "noise_sigma": 0.0,
+          "seed": 4351803460117948045,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 15,
+          "noise_sigma": 10.0,
+          "seed": 4351803460117948045,
+          "suite": "libero_object",
+          "task_id": 2
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 0,
+          "noise_sigma": 0.0,
+          "seed": 4119875400403417697,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 0,
+          "noise_sigma": 10.0,
+          "seed": 4119875400403417697,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 1,
+          "noise_sigma": 0.0,
+          "seed": 1509300748911445137,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 1,
+          "noise_sigma": 10.0,
+          "seed": 1509300748911445137,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 2,
+          "noise_sigma": 0.0,
+          "seed": 2572501637611869177,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 2,
+          "noise_sigma": 10.0,
+          "seed": 2572501637611869177,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 3,
+          "noise_sigma": 0.0,
+          "seed": 1391924349748507987,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 3,
+          "noise_sigma": 10.0,
+          "seed": 1391924349748507987,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 4,
+          "noise_sigma": 0.0,
+          "seed": 1785119014219985697,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 4,
+          "noise_sigma": 10.0,
+          "seed": 1785119014219985697,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 5,
+          "noise_sigma": 0.0,
+          "seed": 8040157267031723733,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 5,
+          "noise_sigma": 10.0,
+          "seed": 8040157267031723733,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 6,
+          "noise_sigma": 0.0,
+          "seed": 3158286996515243948,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 6,
+          "noise_sigma": 10.0,
+          "seed": 3158286996515243948,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 7,
+          "noise_sigma": 0.0,
+          "seed": 3328031032707339041,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 7,
+          "noise_sigma": 10.0,
+          "seed": 3328031032707339041,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 8,
+          "noise_sigma": 0.0,
+          "seed": 6492663389184097198,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 8,
+          "noise_sigma": 10.0,
+          "seed": 6492663389184097198,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 9,
+          "noise_sigma": 0.0,
+          "seed": 8550423671906019752,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 9,
+          "noise_sigma": 10.0,
+          "seed": 8550423671906019752,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 10,
+          "noise_sigma": 0.0,
+          "seed": 4075201377622499855,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 10,
+          "noise_sigma": 10.0,
+          "seed": 4075201377622499855,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 11,
+          "noise_sigma": 0.0,
+          "seed": 8110632465284903303,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 11,
+          "noise_sigma": 10.0,
+          "seed": 8110632465284903303,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 12,
+          "noise_sigma": 0.0,
+          "seed": 4105927883465257319,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 12,
+          "noise_sigma": 10.0,
+          "seed": 4105927883465257319,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 13,
+          "noise_sigma": 0.0,
+          "seed": 161612903106166528,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 13,
+          "noise_sigma": 10.0,
+          "seed": 161612903106166528,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 14,
+          "noise_sigma": 0.0,
+          "seed": 3367334874599133071,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 14,
+          "noise_sigma": 10.0,
+          "seed": 3367334874599133071,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 15,
+          "noise_sigma": 0.0,
+          "seed": 4422366844963313920,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 15,
+          "noise_sigma": 10.0,
+          "seed": 4422366844963313920,
+          "suite": "libero_object",
+          "task_id": 3
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 0,
+          "noise_sigma": 0.0,
+          "seed": 4983493451737397343,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 0,
+          "noise_sigma": 10.0,
+          "seed": 4983493451737397343,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 1,
+          "noise_sigma": 0.0,
+          "seed": 4593954096533505254,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 1,
+          "noise_sigma": 10.0,
+          "seed": 4593954096533505254,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 2,
+          "noise_sigma": 0.0,
+          "seed": 6632967947916575439,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 2,
+          "noise_sigma": 10.0,
+          "seed": 6632967947916575439,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 3,
+          "noise_sigma": 0.0,
+          "seed": 4250019595190709611,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 3,
+          "noise_sigma": 10.0,
+          "seed": 4250019595190709611,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 4,
+          "noise_sigma": 0.0,
+          "seed": 5902076948922361256,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 4,
+          "noise_sigma": 10.0,
+          "seed": 5902076948922361256,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 5,
+          "noise_sigma": 0.0,
+          "seed": 2576071629607508379,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 5,
+          "noise_sigma": 10.0,
+          "seed": 2576071629607508379,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 6,
+          "noise_sigma": 0.0,
+          "seed": 2009030282146950412,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 6,
+          "noise_sigma": 10.0,
+          "seed": 2009030282146950412,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 7,
+          "noise_sigma": 0.0,
+          "seed": 4284322950926077724,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 7,
+          "noise_sigma": 10.0,
+          "seed": 4284322950926077724,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 8,
+          "noise_sigma": 0.0,
+          "seed": 7132046587678432552,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 8,
+          "noise_sigma": 10.0,
+          "seed": 7132046587678432552,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 9,
+          "noise_sigma": 0.0,
+          "seed": 8075311741373812375,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 9,
+          "noise_sigma": 10.0,
+          "seed": 8075311741373812375,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 10,
+          "noise_sigma": 0.0,
+          "seed": 8963042032781550136,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 10,
+          "noise_sigma": 10.0,
+          "seed": 8963042032781550136,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 11,
+          "noise_sigma": 0.0,
+          "seed": 4647776309653582647,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 11,
+          "noise_sigma": 10.0,
+          "seed": 4647776309653582647,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 12,
+          "noise_sigma": 0.0,
+          "seed": 2545554211542812853,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 12,
+          "noise_sigma": 10.0,
+          "seed": 2545554211542812853,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 13,
+          "noise_sigma": 0.0,
+          "seed": 6204289908724781730,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 13,
+          "noise_sigma": 10.0,
+          "seed": 6204289908724781730,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 14,
+          "noise_sigma": 0.0,
+          "seed": 4940802478674917904,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 14,
+          "noise_sigma": 10.0,
+          "seed": 4940802478674917904,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 15,
+          "noise_sigma": 0.0,
+          "seed": 5008407076740692224,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 15,
+          "noise_sigma": 10.0,
+          "seed": 5008407076740692224,
+          "suite": "libero_goal",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 0,
+          "noise_sigma": 0.0,
+          "seed": 6612624229655538349,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 0,
+          "noise_sigma": 10.0,
+          "seed": 6612624229655538349,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 1,
+          "noise_sigma": 0.0,
+          "seed": 8197207208280905316,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 1,
+          "noise_sigma": 10.0,
+          "seed": 8197207208280905316,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 2,
+          "noise_sigma": 0.0,
+          "seed": 1024480547014922827,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 2,
+          "noise_sigma": 10.0,
+          "seed": 1024480547014922827,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 3,
+          "noise_sigma": 0.0,
+          "seed": 8151478912983253933,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 3,
+          "noise_sigma": 10.0,
+          "seed": 8151478912983253933,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 4,
+          "noise_sigma": 0.0,
+          "seed": 8122852867308408037,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 4,
+          "noise_sigma": 10.0,
+          "seed": 8122852867308408037,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 5,
+          "noise_sigma": 0.0,
+          "seed": 2144358126187589521,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 5,
+          "noise_sigma": 10.0,
+          "seed": 2144358126187589521,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 6,
+          "noise_sigma": 0.0,
+          "seed": 5815787786017827039,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 6,
+          "noise_sigma": 10.0,
+          "seed": 5815787786017827039,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 7,
+          "noise_sigma": 0.0,
+          "seed": 5822060461698115689,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 7,
+          "noise_sigma": 10.0,
+          "seed": 5822060461698115689,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 8,
+          "noise_sigma": 0.0,
+          "seed": 7794188155827430947,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 8,
+          "noise_sigma": 10.0,
+          "seed": 7794188155827430947,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 9,
+          "noise_sigma": 0.0,
+          "seed": 5899654917594299596,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 9,
+          "noise_sigma": 10.0,
+          "seed": 5899654917594299596,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 10,
+          "noise_sigma": 0.0,
+          "seed": 3908521136074970183,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 10,
+          "noise_sigma": 10.0,
+          "seed": 3908521136074970183,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 11,
+          "noise_sigma": 0.0,
+          "seed": 164287929464959009,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 11,
+          "noise_sigma": 10.0,
+          "seed": 164287929464959009,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 12,
+          "noise_sigma": 0.0,
+          "seed": 3239981551079656436,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 12,
+          "noise_sigma": 10.0,
+          "seed": 3239981551079656436,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 13,
+          "noise_sigma": 0.0,
+          "seed": 5354672679802289033,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 13,
+          "noise_sigma": 10.0,
+          "seed": 5354672679802289033,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 14,
+          "noise_sigma": 0.0,
+          "seed": 3856815057142482486,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 14,
+          "noise_sigma": 10.0,
+          "seed": 3856815057142482486,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 15,
+          "noise_sigma": 0.0,
+          "seed": 3683635357471665073,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 15,
+          "noise_sigma": 10.0,
+          "seed": 3683635357471665073,
+          "suite": "libero_goal",
+          "task_id": 1
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 0,
+          "noise_sigma": 0.0,
+          "seed": 3592013770308414776,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 0,
+          "noise_sigma": 10.0,
+          "seed": 3592013770308414776,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 1,
+          "noise_sigma": 0.0,
+          "seed": 8586620579471158746,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 1,
+          "noise_sigma": 10.0,
+          "seed": 8586620579471158746,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 2,
+          "noise_sigma": 0.0,
+          "seed": 5873308390155319574,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 2,
+          "noise_sigma": 10.0,
+          "seed": 5873308390155319574,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 3,
+          "noise_sigma": 0.0,
+          "seed": 7713319678694539324,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 3,
+          "noise_sigma": 10.0,
+          "seed": 7713319678694539324,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 4,
+          "noise_sigma": 0.0,
+          "seed": 2266771265198006824,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 4,
+          "noise_sigma": 10.0,
+          "seed": 2266771265198006824,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 5,
+          "noise_sigma": 0.0,
+          "seed": 7652062954623095448,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 5,
+          "noise_sigma": 10.0,
+          "seed": 7652062954623095448,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 6,
+          "noise_sigma": 0.0,
+          "seed": 4961242629731843584,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 6,
+          "noise_sigma": 10.0,
+          "seed": 4961242629731843584,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 7,
+          "noise_sigma": 0.0,
+          "seed": 8409887905225367563,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 7,
+          "noise_sigma": 10.0,
+          "seed": 8409887905225367563,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 8,
+          "noise_sigma": 0.0,
+          "seed": 6474165280091595887,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 8,
+          "noise_sigma": 10.0,
+          "seed": 6474165280091595887,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 9,
+          "noise_sigma": 0.0,
+          "seed": 7101742947260550987,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 9,
+          "noise_sigma": 10.0,
+          "seed": 7101742947260550987,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 10,
+          "noise_sigma": 0.0,
+          "seed": 1878390097171070505,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 10,
+          "noise_sigma": 10.0,
+          "seed": 1878390097171070505,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 11,
+          "noise_sigma": 0.0,
+          "seed": 8969211620162738834,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 11,
+          "noise_sigma": 10.0,
+          "seed": 8969211620162738834,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 12,
+          "noise_sigma": 0.0,
+          "seed": 6848891726438041588,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 12,
+          "noise_sigma": 10.0,
+          "seed": 6848891726438041588,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 13,
+          "noise_sigma": 0.0,
+          "seed": 1110058620043046545,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 13,
+          "noise_sigma": 10.0,
+          "seed": 1110058620043046545,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 14,
+          "noise_sigma": 0.0,
+          "seed": 4842838329718431962,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 14,
+          "noise_sigma": 10.0,
+          "seed": 4842838329718431962,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 15,
+          "noise_sigma": 0.0,
+          "seed": 6720269485736161693,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 15,
+          "noise_sigma": 10.0,
+          "seed": 6720269485736161693,
+          "suite": "libero_goal",
+          "task_id": 5
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 0,
+          "noise_sigma": 0.0,
+          "seed": 7540047759978638997,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 0,
+          "noise_sigma": 10.0,
+          "seed": 7540047759978638997,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 1,
+          "noise_sigma": 0.0,
+          "seed": 8858455123950312348,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 1,
+          "noise_sigma": 10.0,
+          "seed": 8858455123950312348,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 2,
+          "noise_sigma": 0.0,
+          "seed": 1802907975076697628,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 2,
+          "noise_sigma": 10.0,
+          "seed": 1802907975076697628,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 3,
+          "noise_sigma": 0.0,
+          "seed": 1334258287217410846,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 3,
+          "noise_sigma": 10.0,
+          "seed": 1334258287217410846,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 4,
+          "noise_sigma": 0.0,
+          "seed": 3874525622019610986,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 4,
+          "noise_sigma": 10.0,
+          "seed": 3874525622019610986,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 5,
+          "noise_sigma": 0.0,
+          "seed": 5284779802452788640,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 5,
+          "noise_sigma": 10.0,
+          "seed": 5284779802452788640,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 6,
+          "noise_sigma": 0.0,
+          "seed": 1901032567580299958,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 6,
+          "noise_sigma": 10.0,
+          "seed": 1901032567580299958,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 7,
+          "noise_sigma": 0.0,
+          "seed": 6984897118377515887,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 7,
+          "noise_sigma": 10.0,
+          "seed": 6984897118377515887,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 8,
+          "noise_sigma": 0.0,
+          "seed": 990867561470633971,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 8,
+          "noise_sigma": 10.0,
+          "seed": 990867561470633971,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 9,
+          "noise_sigma": 0.0,
+          "seed": 3050128190611361104,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 9,
+          "noise_sigma": 10.0,
+          "seed": 3050128190611361104,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 10,
+          "noise_sigma": 0.0,
+          "seed": 373586768657630449,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 10,
+          "noise_sigma": 10.0,
+          "seed": 373586768657630449,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 11,
+          "noise_sigma": 0.0,
+          "seed": 9045606508042735248,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 11,
+          "noise_sigma": 10.0,
+          "seed": 9045606508042735248,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 12,
+          "noise_sigma": 0.0,
+          "seed": 3528223712747844167,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 12,
+          "noise_sigma": 10.0,
+          "seed": 3528223712747844167,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 13,
+          "noise_sigma": 0.0,
+          "seed": 2444403432247846453,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 13,
+          "noise_sigma": 10.0,
+          "seed": 2444403432247846453,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 14,
+          "noise_sigma": 0.0,
+          "seed": 1966454244108509650,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 14,
+          "noise_sigma": 10.0,
+          "seed": 1966454244108509650,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 15,
+          "noise_sigma": 0.0,
+          "seed": 5766016318334668536,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 15,
+          "noise_sigma": 10.0,
+          "seed": 5766016318334668536,
+          "suite": "libero_10",
+          "task_id": 0
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 0,
+          "noise_sigma": 0.0,
+          "seed": 7266189376275121660,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 0,
+          "noise_sigma": 10.0,
+          "seed": 7266189376275121660,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 1,
+          "noise_sigma": 0.0,
+          "seed": 7222146430738565936,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 1,
+          "noise_sigma": 10.0,
+          "seed": 7222146430738565936,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 2,
+          "noise_sigma": 0.0,
+          "seed": 6454974763645083768,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 2,
+          "noise_sigma": 10.0,
+          "seed": 6454974763645083768,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 3,
+          "noise_sigma": 0.0,
+          "seed": 5312506180735251951,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 3,
+          "noise_sigma": 10.0,
+          "seed": 5312506180735251951,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 4,
+          "noise_sigma": 0.0,
+          "seed": 7702040088739205028,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 4,
+          "noise_sigma": 10.0,
+          "seed": 7702040088739205028,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 5,
+          "noise_sigma": 0.0,
+          "seed": 77926987577396069,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 5,
+          "noise_sigma": 10.0,
+          "seed": 77926987577396069,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 6,
+          "noise_sigma": 0.0,
+          "seed": 8193692121539440770,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 6,
+          "noise_sigma": 10.0,
+          "seed": 8193692121539440770,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 7,
+          "noise_sigma": 0.0,
+          "seed": 9198534919762778905,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 7,
+          "noise_sigma": 10.0,
+          "seed": 9198534919762778905,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 8,
+          "noise_sigma": 0.0,
+          "seed": 6782596543919675628,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 8,
+          "noise_sigma": 10.0,
+          "seed": 6782596543919675628,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 9,
+          "noise_sigma": 0.0,
+          "seed": 6506864764240683267,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 9,
+          "noise_sigma": 10.0,
+          "seed": 6506864764240683267,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 10,
+          "noise_sigma": 0.0,
+          "seed": 79932899269646039,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 10,
+          "noise_sigma": 10.0,
+          "seed": 79932899269646039,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 11,
+          "noise_sigma": 0.0,
+          "seed": 7033450185109483930,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 11,
+          "noise_sigma": 10.0,
+          "seed": 7033450185109483930,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 12,
+          "noise_sigma": 0.0,
+          "seed": 6485356571037449756,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 12,
+          "noise_sigma": 10.0,
+          "seed": 6485356571037449756,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 13,
+          "noise_sigma": 0.0,
+          "seed": 7920071674491400303,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 13,
+          "noise_sigma": 10.0,
+          "seed": 7920071674491400303,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 14,
+          "noise_sigma": 0.0,
+          "seed": 7642276235680169909,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 14,
+          "noise_sigma": 10.0,
+          "seed": 7642276235680169909,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 15,
+          "noise_sigma": 0.0,
+          "seed": 2673069024199307907,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 15,
+          "noise_sigma": 10.0,
+          "seed": 2673069024199307907,
+          "suite": "libero_10",
+          "task_id": 6
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 0,
+          "noise_sigma": 0.0,
+          "seed": 2156386649379416383,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 0,
+          "noise_sigma": 10.0,
+          "seed": 2156386649379416383,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 1,
+          "noise_sigma": 0.0,
+          "seed": 4462203130326996715,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 1,
+          "noise_sigma": 10.0,
+          "seed": 4462203130326996715,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 2,
+          "noise_sigma": 0.0,
+          "seed": 7820285819247058904,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 2,
+          "noise_sigma": 10.0,
+          "seed": 7820285819247058904,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 3,
+          "noise_sigma": 0.0,
+          "seed": 679937630992262150,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 3,
+          "noise_sigma": 10.0,
+          "seed": 679937630992262150,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 4,
+          "noise_sigma": 0.0,
+          "seed": 2006302845075082411,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 4,
+          "noise_sigma": 10.0,
+          "seed": 2006302845075082411,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 5,
+          "noise_sigma": 0.0,
+          "seed": 1489788877472852430,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 5,
+          "noise_sigma": 10.0,
+          "seed": 1489788877472852430,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 6,
+          "noise_sigma": 0.0,
+          "seed": 2399450341662773933,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 6,
+          "noise_sigma": 10.0,
+          "seed": 2399450341662773933,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 7,
+          "noise_sigma": 0.0,
+          "seed": 8127991335501885499,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 7,
+          "noise_sigma": 10.0,
+          "seed": 8127991335501885499,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 8,
+          "noise_sigma": 0.0,
+          "seed": 2390522669321196509,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 8,
+          "noise_sigma": 10.0,
+          "seed": 2390522669321196509,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 9,
+          "noise_sigma": 0.0,
+          "seed": 8600677561845417470,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 9,
+          "noise_sigma": 10.0,
+          "seed": 8600677561845417470,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 10,
+          "noise_sigma": 0.0,
+          "seed": 5549893890620173356,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 10,
+          "noise_sigma": 10.0,
+          "seed": 5549893890620173356,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 11,
+          "noise_sigma": 0.0,
+          "seed": 5634695413476793074,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 11,
+          "noise_sigma": 10.0,
+          "seed": 5634695413476793074,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 12,
+          "noise_sigma": 0.0,
+          "seed": 8534183313631184142,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 12,
+          "noise_sigma": 10.0,
+          "seed": 8534183313631184142,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 13,
+          "noise_sigma": 0.0,
+          "seed": 895251189683068977,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 13,
+          "noise_sigma": 10.0,
+          "seed": 895251189683068977,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 14,
+          "noise_sigma": 0.0,
+          "seed": 1323391660050550940,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 14,
+          "noise_sigma": 10.0,
+          "seed": 1323391660050550940,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 1.0,
+          "condition": "nominal",
+          "init_state_id": 15,
+          "noise_sigma": 0.0,
+          "seed": 2686120687374846174,
+          "suite": "libero_10",
+          "task_id": 8
+        },
+        {
+          "brightness": 0.6,
+          "condition": "shift",
+          "init_state_id": 15,
+          "noise_sigma": 10.0,
+          "seed": 2686120687374846174,
+          "suite": "libero_10",
+          "task_id": 8
+        }
+      ],
+      "runtime": {
+        "packages": {
+          "hf-libero": "0.1.4",
+          "huggingface-hub": "1.33.0",
+          "lerobot": "0.7.0",
+          "mujoco": "3.3.7",
+          "numpy": "2.2.6",
+          "pandas": "2.3.3",
+          "pyarrow": "26.0.1",
+          "robosuite": "1.4.0",
+          "safetensors": "0.8.0",
+          "scipy": "1.18.1",
+          "statsmodels": "0.15.0",
+          "torch": "2.15.0",
+          "torchvision": "0.29.2",
+          "transformers": "5.22.2"
+        },
+        "platform": "macOS-26.6.2-arm64-arm-64bit",
+        "python": "3.12.13"
+      },
+      "schema": 2,
+      "source_hash": "d48a70769f8de71426510bd575c71f17f9b14e3696eba221794638932b1d211d",
+      "split": {
+        "reserved_dev_task": 0,
+        "seed": 20261110,
+        "suites": {
+          "libero_10": {
+            "dev": [
+              0,
+              6,
+              8
+            ],
+            "test": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              9
+            ]
+          },
+          "libero_goal": {
+            "dev": [
+              0,
+              1,
+              5
+            ],
+            "test": [
+              2,
+              3,
+              4,
+              6,
+              7,
+              8,
+              9
+            ]
+          },
+          "libero_object": {
+            "dev": [
+              0,
+              2,
+              3
+            ],
+            "test": [
+              1,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ]
+          },
+          "libero_spatial": {
+            "dev": [
+              0,
+              6,
+              7
+            ],
+            "test": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              8,
+              9
+            ]
+          }
+        }
+      },
+      "stage": "dev_rollouts",
+      "vlm_revision": "7b375e1b73b11138ff12fe22c8f2822d8fe03467"
+    },
+    "scope": "development only; no confirmatory H4 claim",
+    "source_hash": "e85e0637c4fda287f57f98ff9876e692557fa7e2f1b30f6fc6a034e7f1bf54d3",
+    "stage": "h4_selection_dev"
+  },
+  "config_hash": "1265d2098d6d",
+  "git_sha": "4c9402f6dc02ae301861dca9956a3b94df32bbde",
+  "packages": {
+    "av": "15.1.0",
+    "datasets": "5.2.0",
+    "hf-libero": "0.1.4",
+    "huggingface-hub": "1.33.0",
+    "lerobot": "0.7.0",
+    "mujoco": "3.3.7",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "pillow": "13.0.0",
+    "pyarrow": "26.0.1",
+    "robosuite": "1.4.0",
+    "safetensors": "0.8.0",
+    "scipy": "1.18.1",
+    "statsmodels": "0.15.0",
+    "tokenizers": "0.23.3",
+    "torch": "2.15.0",
+    "torchvision": "0.29.2",
+    "transformers": "5.22.2"
+  },
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.12.13",
+  "source_archive_sha256": "1c37d66ba0c05be13bbd72825bdaf3385d11a1a3473f7f1bb8083fb599524752",
+  "source_hash": "e85e0637c4fda287f57f98ff9876e692557fa7e2f1b30f6fc6a034e7f1bf54d3",
+  "stage": "h4_selection_dev",
+  "written_at": "2026-11-11T14:50:30-0800"
+}

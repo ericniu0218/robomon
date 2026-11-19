@@ -1,0 +1,1162 @@
+{
+  "all_initial_physics_equal": true,
+  "all_static_scenes_equal": true,
+  "comparisons": [
+    {
+      "pair_id": "libero_10/0/0/7540047759978638997",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/0/1/8858455123950312348",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/0/10/373586768657630449",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/0/11/9045606508042735248",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/0/12/3528223712747844167",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/0/13/2444403432247846453",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/0/14/1966454244108509650",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/0/15/5766016318334668536",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/0/2/1802907975076697628",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/0/3/1334258287217410846",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/0/4/3874525622019610986",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/0/5/5284779802452788640",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/0/6/1901032567580299958",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/0/7/6984897118377515887",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/0/8/990867561470633971",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/0/9/3050128190611361104",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/6/0/7266189376275121660",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/6/1/7222146430738565936",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/6/10/79932899269646039",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/6/11/7033450185109483930",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/6/12/6485356571037449756",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/6/13/7920071674491400303",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/6/14/7642276235680169909",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/6/15/2673069024199307907",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/6/2/6454974763645083768",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/6/3/5312506180735251951",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/6/4/7702040088739205028",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/6/5/77926987577396069",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/6/6/8193692121539440770",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/6/7/9198534919762778905",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/6/8/6782596543919675628",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/6/9/6506864764240683267",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/8/0/2156386649379416383",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/8/1/4462203130326996715",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/8/10/5549893890620173356",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/8/11/5634695413476793074",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/8/12/8534183313631184142",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/8/13/895251189683068977",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/8/14/1323391660050550940",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/8/15/2686120687374846174",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/8/2/7820285819247058904",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/8/3/679937630992262150",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/8/4/2006302845075082411",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/8/5/1489788877472852430",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/8/6/2399450341662773933",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/8/7/8127991335501885499",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/8/8/2390522669321196509",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_10/8/9/8600677561845417470",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/0/0/4983493451737397343",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/0/1/4593954096533505254",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/0/10/8963042032781550136",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/0/11/4647776309653582647",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/0/12/2545554211542812853",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/0/13/6204289908724781730",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/0/14/4940802478674917904",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/0/15/5008407076740692224",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/0/2/6632967947916575439",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/0/3/4250019595190709611",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/0/4/5902076948922361256",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/0/5/2576071629607508379",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/0/6/2009030282146950412",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/0/7/4284322950926077724",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/0/8/7132046587678432552",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/0/9/8075311741373812375",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/1/0/6612624229655538349",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/1/1/8197207208280905316",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/1/10/3908521136074970183",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/1/11/164287929464959009",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/1/12/3239981551079656436",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/1/13/5354672679802289033",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/1/14/3856815057142482486",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/1/15/3683635357471665073",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/1/2/1024480547014922827",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/1/3/8151478912983253933",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/1/4/8122852867308408037",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/1/5/2144358126187589521",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/1/6/5815787786017827039",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/1/7/5822060461698115689",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/1/8/7794188155827430947",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/1/9/5899654917594299596",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/5/0/3592013770308414776",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/5/1/8586620579471158746",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/5/10/1878390097171070505",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/5/11/8969211620162738834",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/5/12/6848891726438041588",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/5/13/1110058620043046545",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/5/14/4842838329718431962",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/5/15/6720269485736161693",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/5/2/5873308390155319574",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/5/3/7713319678694539324",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/5/4/2266771265198006824",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/5/5/7652062954623095448",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/5/6/4961242629731843584",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/5/7/8409887905225367563",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/5/8/6474165280091595887",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_goal/5/9/7101742947260550987",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/0/0/5014353851539973873",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/0/1/163780116177536131",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/0/10/5199558298898468642",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/0/11/7631271393911929961",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/0/12/890767918842594926",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/0/13/3816087687183175799",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/0/14/791784165217987885",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/0/15/2249634050195206233",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/0/2/828523291878779775",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/0/3/1636975690510262298",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/0/4/5195627390346470695",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/0/5/1315174097662528975",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/0/6/4705120919054386069",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/0/7/2906119512117032079",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/0/8/3374518278191693363",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/0/9/7955094062924015718",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/2/0/6089969868496037194",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/2/1/7648297338835271893",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/2/10/3791156926486116020",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/2/11/7401377329800646057",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/2/12/3494032422157873522",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/2/13/1593897847070062435",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/2/14/5614167558677214480",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/2/15/4351803460117948045",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/2/2/1597687774843509318",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/2/3/2724485566081520929",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/2/4/8194784021890580043",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/2/5/2824030120551681417",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/2/6/7302532265866006638",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/2/7/2227190209896659360",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/2/8/5474475051915109861",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/2/9/9056504947749413709",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/3/0/4119875400403417697",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/3/1/1509300748911445137",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/3/10/4075201377622499855",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/3/11/8110632465284903303",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/3/12/4105927883465257319",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/3/13/161612903106166528",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/3/14/3367334874599133071",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/3/15/4422366844963313920",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/3/2/2572501637611869177",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/3/3/1391924349748507987",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/3/4/1785119014219985697",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/3/5/8040157267031723733",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/3/6/3158286996515243948",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/3/7/3328031032707339041",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/3/8/6492663389184097198",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_object/3/9/8550423671906019752",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/0/0/6983315757510167199",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/0/1/5411900829910326391",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/0/10/8853977372214341127",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/0/11/4951893933232369987",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/0/12/7628220462475096739",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/0/13/3007354775762167091",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/0/14/1061666661766435133",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/0/15/4673534548990879966",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/0/2/1508152594704719135",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/0/3/1692383069431539774",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/0/4/9030840542685780788",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/0/5/8948563265926296384",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/0/6/4083776748013588479",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/0/7/1445722047428275584",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/0/8/7717156682606532898",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/0/9/746505839580300895",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/6/0/7825706300978412140",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/6/1/4063961913524826406",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/6/10/6395071251119945557",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/6/11/4475246334838246455",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/6/12/7562664843676563365",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/6/13/1339140229732602400",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/6/14/4429044089408722026",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/6/15/2863687496312476738",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/6/2/8928000091566404671",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/6/3/7250421894445266378",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/6/4/2570005725540544107",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/6/5/3307531485217056299",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/6/6/2693981512077565850",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/6/7/524321500932646234",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/6/8/3784006082144057351",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/6/9/7099810179315026984",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/7/0/809302245839677774",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/7/1/3288865571712260368",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/7/10/7742918449166862636",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/7/11/2428867666156136244",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/7/12/47413098656040469",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/7/13/7394298179917340300",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/7/14/6128871504658046228",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/7/15/418942736236709240",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/7/2/2417072591816082046",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/7/3/5678032417120911198",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/7/4/7322879780001858670",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/7/5/1962711275667383055",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/7/6/4249195909989155848",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/7/7/4940120029416250416",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/7/8/3959098230253888230",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    },
+    {
+      "pair_id": "libero_spatial/7/9/8890540595096314410",
+      "reset_body_pos_equal": true,
+      "reset_body_quat_equal": true,
+      "reset_state_equal": true
+    }
+  ],
+  "complete": true,
+  "pairs": 192,
+  "pairs_missing_initial_physics_snapshots": 0,
+  "requested_checks_passed": true
+}

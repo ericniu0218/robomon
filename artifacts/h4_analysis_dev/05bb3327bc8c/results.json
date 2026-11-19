@@ -1,0 +1,663 @@
+{
+  "branches": 228,
+  "by_cell": [
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 1,
+      "task": "libero_10/0"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/0"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 2,
+      "task": "libero_10/0"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 1,
+      "task": "libero_10/0"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/0"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/0"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 2,
+      "task": "libero_10/0"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 2,
+      "task": "libero_10/0"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/6"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/6"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 1,
+      "task": "libero_10/6"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 1,
+      "task": "libero_10/6"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/6"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/6"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 2,
+      "task": "libero_10/6"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 2,
+      "task": "libero_10/6"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/8"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_10/8"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_10/8"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_10/8"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 2,
+      "task": "libero_10/8"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 2,
+      "task": "libero_10/8"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 2,
+      "task": "libero_10/8"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 0,
+      "task": "libero_10/8"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 1,
+      "task": "libero_goal/0"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_goal/0"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_goal/0"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_goal/0"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_goal/5"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_goal/5"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 0,
+      "task": "libero_goal/5"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 0,
+      "task": "libero_goal/5"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_goal/5"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_goal/5"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_goal/5"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 1,
+      "task": "libero_goal/5"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/0"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/0"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_object/0"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_object/0"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/0"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/0"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_object/0"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_object/0"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/2"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 1,
+      "task": "libero_object/2"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_object/2"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_object/2"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/2"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/2"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_object/2"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_object/2"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/3"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/3"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_object/3"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_object/3"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/3"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_object/3"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_object/3"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_object/3"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_spatial/0"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_spatial/0"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_spatial/0"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_spatial/0"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 1,
+      "task": "libero_spatial/0"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 3,
+      "task": "libero_spatial/0"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_spatial/0"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_spatial/0"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_spatial/7"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_spatial/7"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 0,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_spatial/7"
+    },
+    {
+      "branches": 3,
+      "condition": "nominal",
+      "rewind": 50,
+      "role": "control",
+      "successes": 3,
+      "task": "libero_spatial/7"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_spatial/7"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "alarm",
+      "successes": 0,
+      "task": "libero_spatial/7"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 0,
+      "role": "control",
+      "successes": 0,
+      "task": "libero_spatial/7"
+    },
+    {
+      "branches": 3,
+      "condition": "shift",
+      "rewind": 50,
+      "role": "control",
+      "successes": 2,
+      "task": "libero_spatial/7"
+    }
+  ],
+  "contrasts": {
+    "control_rollback_minus_replan_exploratory": {
+      "alpha": 0.05,
+      "ci_high": 0.30713830140813786,
+      "ci_low": -0.4124014593028747,
+      "estimate": -0.05263157894736842,
+      "independent_seed_blocks": 57,
+      "interval": "Hoeffding; fixed selected states; Monte Carlo error only",
+      "negative": 8,
+      "positive": 5,
+      "radius_unclipped": 0.3597698803555063,
+      "zero": 44
+    },
+    "h4a_control_minus_alarm_replan": {
+      "alpha": 0.05,
+      "ci_high": 1.0,
+      "ci_low": 0.34198450560940596,
+      "estimate": 0.7017543859649122,
+      "independent_seed_blocks": 57,
+      "interval": "Hoeffding; fixed selected states; Monte Carlo error only",
+      "negative": 1,
+      "positive": 41,
+      "radius_unclipped": 0.3597698803555063,
+      "zero": 15
+    },
+    "h4b_alarm_rollback_minus_replan": {
+      "alpha": 0.05,
+      "ci_high": 0.3773137400046291,
+      "ci_low": -0.34222602070638347,
+      "estimate": 0.017543859649122806,
+      "independent_seed_blocks": 57,
+      "interval": "Hoeffding; fixed selected states; Monte Carlo error only",
+      "negative": 2,
+      "positive": 3,
+      "radius_unclipped": 0.3597698803555063,
+      "zero": 52
+    }
+  },
+  "gates_passed": 38,
+  "matched_sets": 19,
+  "rates": {
+    "alarm_replan": 0.08771929824561403,
+    "alarm_rollback": 0.10526315789473684,
+    "control_replan": 0.7894736842105263,
+    "control_rollback": 0.7368421052631579
+  },
+  "replicates_per_state_arm": 3,
+  "states": 38,
+  "status": "development only",
+  "target": "equal-weight mean over fixed selected matched states and fresh policy/pixel noise"
+}

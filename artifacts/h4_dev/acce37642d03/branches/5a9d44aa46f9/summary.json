@@ -1,0 +1,22 @@
+{
+  "branch_seed": 2134272288546193410,
+  "budget": 420,
+  "checkpoint": 100,
+  "condition": "shift",
+  "episode_id": "libero_10/6/1/7222146430738565936/shift",
+  "forward_steps": 420,
+  "horizon": 520,
+  "kind": "intervention",
+  "landmark": 100,
+  "match_id": "cea4576705ce",
+  "pair_id": "libero_10/6/1/7222146430738565936",
+  "replicate": 2,
+  "restored_step": 50,
+  "rewind": 50,
+  "role": "control",
+  "score": 0.3321970637121613,
+  "seed": 2134272288546193410,
+  "success": false,
+  "task": "libero_10/6",
+  "wall_seconds": 6.983787958975881
+}

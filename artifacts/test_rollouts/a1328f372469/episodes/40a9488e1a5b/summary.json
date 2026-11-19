@@ -1,0 +1,26 @@
+{
+  "brightness": 0.6,
+  "condition": "shift",
+  "episode_id": "libero_spatial/8/6/6276863389629603524/shift",
+  "init_state_id": 6,
+  "k": 8,
+  "monitor": true,
+  "monitor_query_seconds": 1.5943396670045331,
+  "noise_sigma": 10.0,
+  "pair_id": "libero_spatial/8/6/6276863389629603524",
+  "queries": 4,
+  "query_interval": 25,
+  "reset_context": {
+    "mode": "isolated",
+    "prior_init_states": []
+  },
+  "seed": 6276863389629603524,
+  "shared_prefix": true,
+  "steps": 88,
+  "success": true,
+  "suite": "libero_spatial",
+  "task": "libero_spatial/8",
+  "task_id": 8,
+  "termination": "success",
+  "wall_seconds": 7.249825959093869
+}

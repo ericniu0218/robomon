@@ -1,0 +1,26 @@
+{
+  "branch_seed": 7965902397837085066,
+  "budget": 180,
+  "checkpoint": 100,
+  "condition": "shift",
+  "episode_id": "libero_object/2/0/6089969868496037194/shift",
+  "forward_steps": 60,
+  "horizon": 280,
+  "kind": "intervention",
+  "landmark": 100,
+  "match_id": "3e17e0b0cf75",
+  "pair_id": "libero_object/2/0/6089969868496037194",
+  "replicate": 1,
+  "reset_history": [
+    0
+  ],
+  "reset_history_source": "legacy declared-order candidate; requires exact gate",
+  "restored_step": 50,
+  "rewind": 50,
+  "role": "control",
+  "score": 0.42704105964258016,
+  "seed": 7965902397837085066,
+  "success": true,
+  "task": "libero_object/2",
+  "wall_seconds": 3.0786541249835864
+}

@@ -1,0 +1,29 @@
+{
+  "archive": "source.zip",
+  "archive_sha256": "c4fd286209c0de8b3914f167e6250804035a4d200090ca8f2a19c4c624d3ffc6",
+  "files": {
+    "robomon/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "robomon/analysis/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "robomon/analysis/development.py": "c275494e51223bf6c81d526e5876364e4ea3e0bc26657eb38700c1660db826ed",
+    "robomon/analysis/landmarks.py": "be6c5a0ebc7784ea3c500288b040ddbab2a5117c6dc8d248f2e73bb469ee7f10",
+    "robomon/data/__init__.py": "98af3163c9cf8dae9ae8283a86a09c777d719ae65243e81808097af862861311",
+    "robomon/data/demos.py": "6770bd353bea99f13bce6e864d81c2fe105deb6d7d4c0e7c0dfe352713e05a06",
+    "robomon/envs/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "robomon/envs/libero_session.py": "8c89e9be9d0852e4984da1da6ccd8360af96f92dd99d739923dd6b9f3c742392",
+    "robomon/monitors/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "robomon/monitors/bank.py": "09aab0948de8614cdc1fe603826835fe1d819df00c5608fe9e906b2e2aa695ad",
+    "robomon/monitors/signals.py": "2d07bffc86467babf14bfa45e6975a696a52b2e771ddb4819fbbdf4589b82ce8",
+    "robomon/policy/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "robomon/policy/smolvla.py": "ffd552d6d9b27a99fc0ddb63a63c5d9551a79328182b368faa7aacf7bb4d3d24",
+    "robomon/rollout.py": "02c983cf27c612de45ecd7a24a64d87e849779636324ea0c498e0e27335ec971",
+    "robomon/splits.py": "2b514651f9a81192aaf2055aedbb3dfb6f8f5e88130812bc0fe5e48f0dc5211a",
+    "robomon/utils/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "robomon/utils/artifacts.py": "c45ec96681ea9e716c5c4d9907db3516798b3b189efc6a904e225fbb32cbee9b",
+    "robomon/utils/io.py": "c567f00f90850376f615d01d3405549999ad485ae34d6101768ca04a1fdc45a5",
+    "scripts/analyze_dev.py": "ea08d6a9b851f05170e5c5ee43ba3f34827b705dc06a3b8ece4eb29d91df4708",
+    "scripts/build_demo_bank.py": "3fe15020d2cb0747e3ea84a9aaebdc28648eac08058b54a567f6d437e8c38700",
+    "scripts/run_dev.py": "330d83cda216eb9174064f58086554dd59b78d7cc82fd603851a33a9822d15b4",
+    "scripts/validate_runner.py": "f22ccd2fe394652c4bf40a70927571d22b5972555d13b46037dbf309477e202d"
+  },
+  "source_hash": "d48a70769f8de71426510bd575c71f17f9b14e3696eba221794638932b1d211d"
+}

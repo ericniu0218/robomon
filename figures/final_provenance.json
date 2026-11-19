@@ -1,0 +1,22 @@
+{
+  "files": {
+    "final_audit.png": "4fbf6aaa8e6ed69026aec1fd2ec4d087cf2b157dde433fb7f5845596dc75e3c5",
+    "final_h3.png": "07faa3415b8c15245f6ab1e0d200090eba4f2febc4b3e3ffdb30489d94af54cd",
+    "final_h4.png": "89f6fbcd7c74d56019c429ade0da0cc671e498f26286528b107b44af44e4c016"
+  },
+  "freeze_commit": "5aca84453a411d9c3b8bc824415a0b95d79edd15",
+  "h4_manifest_sha": "2c9e23aaede5aae8a663b4fc0242107b978136b48473d85d0e33ac1bcd68d326",
+  "h4_results_sha": "7ac4082d382b0aa902f2d8016dec9c8c55628799e017a9ed096dc3bb82f51e76",
+  "primary_manifest_sha": "fae6da9cfcbd7d5c5f79deebeb8e83983ceb1c0660d24d2f2bd625eba34c73a5",
+  "primary_results_sha": "4148f7649a6932111026a074b591b04f5d7ee6683c7753e7710fdfa0f38d00f8",
+  "protocol_sha": "8b0ba3a7fafed9fd1c3d9a6832c723a723e4ab371f6fb00724f01535d983ef96",
+  "render_runtime": {
+    "matplotlib": "3.11.2",
+    "numpy": "2.2.6"
+  },
+  "report_script_sha": "def981d2930b4134f5903b110844e6896e2f804a24f3c6df9eb71912f727467f",
+  "report_sha": "942c2657e8f48ab636743fced65bb531b9dbbe69be13a87ca2e7fdfaae8dd3fa",
+  "selection_manifest_sha": "3520c876d93a69cd7504aab7ed4bebfbb5494cfed2bde4936406f036ae159d36",
+  "selection_results_sha": "59fdff3a1ef0997a7b272c8235f3d959c35348316faff4df7ca7d317aabe49b9",
+  "summary_sha": "53e50247dd28f17afae49ce0dc71c306826cd38f1033178f64ce200be1d83404"
+}

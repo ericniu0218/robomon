@@ -1,0 +1,15 @@
+{
+  "files": {
+    "audit_mean.png": "148bab78ebe4294bf01ed7f419f2f4334c90cfc9807bdd4a252845e39a0fd390",
+    "task_success.png": "4be16f6150fe77b6280b09514155a624d770e3d82bfe8dd35e8ec42ff97a0b44"
+  },
+  "palette": [
+    "#0072B2",
+    "#D55E00",
+    "#009E73",
+    "#000000"
+  ],
+  "reduction": "mean for matched comparisons",
+  "scope": "development only",
+  "source_results_sha": "600ca18b7ebc3fb9d203033f575df84b775b5477d862c41ed27ccee2b59694b3"
+}

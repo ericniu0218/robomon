@@ -1,0 +1,26 @@
+{
+  "brightness": 0.6,
+  "condition": "shift",
+  "episode_id": "libero_10/1/10/9171285603710984154/shift",
+  "init_state_id": 10,
+  "k": 8,
+  "monitor": true,
+  "monitor_query_seconds": 4.514280084054917,
+  "noise_sigma": 10.0,
+  "pair_id": "libero_10/1/10/9171285603710984154",
+  "queries": 11,
+  "query_interval": 25,
+  "reset_context": {
+    "mode": "isolated",
+    "prior_init_states": []
+  },
+  "seed": 9171285603710984154,
+  "shared_prefix": true,
+  "steps": 275,
+  "success": true,
+  "suite": "libero_10",
+  "task": "libero_10/1",
+  "task_id": 1,
+  "termination": "success",
+  "wall_seconds": 10.764573625056073
+}

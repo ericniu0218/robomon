@@ -1,0 +1,46 @@
+{
+  "auxiliary_sources": {},
+  "config": {
+    "analysis_manifest_sha": "3711a93ec42ae63886f79eb93f7db680a6fd2bcf2c07f9a64c55ac68889eef07",
+    "features": [
+      "support__last",
+      "dispersion__last",
+      "consistency__last"
+    ],
+    "interval": "basic",
+    "landmarks_sha": "c9d4ef9415fde6b14dfe3b856ddf8074e55ea0628003650cd6ba1253d4ff0a33",
+    "method": "pairwise_conditional_composite_logistic",
+    "n_boot": 2000,
+    "scope": "development only",
+    "source_hash": "197c607516d42f747c063eec7fffdefcabdb318e113c2b6c78480284ba09e1e4",
+    "stage": "h3_dev"
+  },
+  "config_hash": "185d70231b96",
+  "git_sha": "8b40f3ab56c83fe305f0c437f2de7642e9db7bfd",
+  "packages": {
+    "av": "15.1.0",
+    "datasets": "5.2.0",
+    "hf-libero": "0.1.4",
+    "huggingface-hub": "1.33.0",
+    "lerobot": "0.7.0",
+    "mujoco": "3.3.7",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "pillow": "13.0.0",
+    "pyarrow": "26.0.1",
+    "robosuite": "1.4.0",
+    "safetensors": "0.8.0",
+    "scipy": "1.18.1",
+    "statsmodels": "0.15.0",
+    "tokenizers": "0.23.3",
+    "torch": "2.15.0",
+    "torchvision": "0.29.2",
+    "transformers": "5.22.2"
+  },
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.12.13",
+  "source_archive_sha256": "078a52f1c3fed41744e7f194fffa90564f331b2b3dd06ac97e2faaef4a7c4b59",
+  "source_hash": "197c607516d42f747c063eec7fffdefcabdb318e113c2b6c78480284ba09e1e4",
+  "stage": "h3_dev",
+  "written_at": "2026-11-11T21:02:14-0800"
+}

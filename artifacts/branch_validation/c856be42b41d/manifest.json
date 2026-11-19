@@ -1,0 +1,117 @@
+{
+  "auxiliary_sources": {
+    "diagnostic.py": "42036be97cbfefc192964a080a687165a5640b2dd182716702b00b69821995fd"
+  },
+  "config": {
+    "budget": "original_horizon-checkpoint",
+    "checkpoint": 100,
+    "diagnostic_sha": "42036be97cbfefc192964a080a687165a5640b2dd182716702b00b69821995fd",
+    "input_manifest_sha": "d054dba6c3705aaddc25742070f869a901d78697550df23a43076fe4994a76f1",
+    "intervention_samples": 0,
+    "scope": "development engineering only",
+    "selected": [
+      {
+        "brightness": 1.0,
+        "condition": "nominal",
+        "init_state_id": 0,
+        "noise_sigma": 0.0,
+        "seed": 6983315757510167199,
+        "suite": "libero_spatial",
+        "task_id": 0
+      },
+      {
+        "brightness": 0.6,
+        "condition": "shift",
+        "init_state_id": 0,
+        "noise_sigma": 10.0,
+        "seed": 6983315757510167199,
+        "suite": "libero_spatial",
+        "task_id": 0
+      },
+      {
+        "brightness": 1.0,
+        "condition": "nominal",
+        "init_state_id": 0,
+        "noise_sigma": 0.0,
+        "seed": 5014353851539973873,
+        "suite": "libero_object",
+        "task_id": 0
+      },
+      {
+        "brightness": 0.6,
+        "condition": "shift",
+        "init_state_id": 0,
+        "noise_sigma": 10.0,
+        "seed": 5014353851539973873,
+        "suite": "libero_object",
+        "task_id": 0
+      },
+      {
+        "brightness": 1.0,
+        "condition": "nominal",
+        "init_state_id": 0,
+        "noise_sigma": 0.0,
+        "seed": 4983493451737397343,
+        "suite": "libero_goal",
+        "task_id": 0
+      },
+      {
+        "brightness": 0.6,
+        "condition": "shift",
+        "init_state_id": 0,
+        "noise_sigma": 10.0,
+        "seed": 4983493451737397343,
+        "suite": "libero_goal",
+        "task_id": 0
+      },
+      {
+        "brightness": 1.0,
+        "condition": "nominal",
+        "init_state_id": 0,
+        "noise_sigma": 0.0,
+        "seed": 7540047759978638997,
+        "suite": "libero_10",
+        "task_id": 0
+      },
+      {
+        "brightness": 0.6,
+        "condition": "shift",
+        "init_state_id": 0,
+        "noise_sigma": 10.0,
+        "seed": 7540047759978638997,
+        "suite": "libero_10",
+        "task_id": 0
+      }
+    ],
+    "source_hash": "a07f195bf01bce58873ed2cf0c7e48d35577573d177753728a0fd4e1991f75cb",
+    "stage": "branch_validation"
+  },
+  "config_hash": "c856be42b41d",
+  "git_sha": "9c1023ae10c6276480cec7e2cb17f56671f4373e",
+  "packages": {
+    "av": "15.1.0",
+    "datasets": "5.2.0",
+    "hf-libero": "0.1.4",
+    "huggingface-hub": "1.33.0",
+    "lerobot": "0.7.0",
+    "mujoco": "3.3.7",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "pillow": "13.0.0",
+    "pyarrow": "26.0.1",
+    "robosuite": "1.4.0",
+    "safetensors": "0.8.0",
+    "scipy": "1.18.1",
+    "statsmodels": "0.15.0",
+    "tokenizers": "0.23.3",
+    "torch": "2.15.0",
+    "torchvision": "0.29.2",
+    "transformers": "5.22.2"
+  },
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.12.13",
+  "source_archive_sha256": "831d59c29a061bac4807881728a3c629bcc6b8b301b89093eaafd02d04a1e43b",
+  "source_hash": "a07f195bf01bce58873ed2cf0c7e48d35577573d177753728a0fd4e1991f75cb",
+  "stage": "branch_validation",
+  "written_at": "2026-11-11T13:23:30-0800"
+}

@@ -1,0 +1,22 @@
+{
+  "brightness": 0.6,
+  "condition": "shift",
+  "episode_id": "libero_goal/5/14/4842838329718431962/shift",
+  "init_state_id": 14,
+  "k": 8,
+  "monitor": true,
+  "monitor_query_seconds": 5.1409025429748,
+  "noise_sigma": 10.0,
+  "pair_id": "libero_goal/5/14/4842838329718431962",
+  "queries": 12,
+  "query_interval": 25,
+  "seed": 4842838329718431962,
+  "shared_prefix": true,
+  "steps": 300,
+  "success": false,
+  "suite": "libero_goal",
+  "task": "libero_goal/5",
+  "task_id": 5,
+  "termination": "timeout",
+  "wall_seconds": 10.710483666043729
+}

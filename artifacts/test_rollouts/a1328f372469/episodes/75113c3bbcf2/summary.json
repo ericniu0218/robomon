@@ -1,0 +1,26 @@
+{
+  "brightness": 1.0,
+  "condition": "nominal",
+  "episode_id": "libero_goal/8/14/4093309198762075677/nominal",
+  "init_state_id": 14,
+  "k": 8,
+  "monitor": true,
+  "monitor_query_seconds": 1.215325333061628,
+  "noise_sigma": 0.0,
+  "pair_id": "libero_goal/8/14/4093309198762075677",
+  "queries": 3,
+  "query_interval": 25,
+  "reset_context": {
+    "mode": "isolated",
+    "prior_init_states": []
+  },
+  "seed": 4093309198762075677,
+  "shared_prefix": true,
+  "steps": 74,
+  "success": true,
+  "suite": "libero_goal",
+  "task": "libero_goal/8",
+  "task_id": 8,
+  "termination": "success",
+  "wall_seconds": 5.29245416703634
+}

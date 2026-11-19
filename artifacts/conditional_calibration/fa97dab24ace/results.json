@@ -1,0 +1,547 @@
+{
+  "datasets": [
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 0,
+      "effect": {
+        "ci_high": 0.25174333176039737,
+        "ci_low": -0.18479357992116235,
+        "coef": 0.02702822584515514
+      },
+      "status": "ok",
+      "true_coef": 0.0
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 1,
+      "effect": {
+        "ci_high": 0.3917794831615716,
+        "ci_low": -0.04327113487754575,
+        "coef": 0.14940288531545384
+      },
+      "status": "ok",
+      "true_coef": 0.0
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 2,
+      "effect": {
+        "ci_high": 0.1599703433203264,
+        "ci_low": -0.27583326136550346,
+        "coef": -0.08032267208650035
+      },
+      "status": "ok",
+      "true_coef": 0.0
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 3,
+      "effect": {
+        "ci_high": 0.2986854792219859,
+        "ci_low": -0.14114214294059588,
+        "coef": 0.069668420062995
+      },
+      "status": "ok",
+      "true_coef": 0.0
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 4,
+      "effect": {
+        "ci_high": 0.21235423057996783,
+        "ci_low": -0.19634027626044495,
+        "coef": 0.0013397479735195866
+      },
+      "status": "ok",
+      "true_coef": 0.0
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 5,
+      "effect": {
+        "ci_high": 0.17013287273675196,
+        "ci_low": -0.33332590851404625,
+        "coef": -0.1085440544810773
+      },
+      "status": "ok",
+      "true_coef": 0.0
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 6,
+      "effect": {
+        "ci_high": 0.3385251296955818,
+        "ci_low": -0.15688320250689,
+        "coef": 0.05703636863321639
+      },
+      "status": "ok",
+      "true_coef": 0.0
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 7,
+      "effect": {
+        "ci_high": 0.4316017728480419,
+        "ci_low": -0.07310397496041617,
+        "coef": 0.1575018738998252
+      },
+      "status": "ok",
+      "true_coef": 0.0
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 8,
+      "effect": {
+        "ci_high": 0.30071419196587973,
+        "ci_low": -0.22167460971449765,
+        "coef": 0.04988199701557361
+      },
+      "status": "ok",
+      "true_coef": 0.0
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 9,
+      "effect": {
+        "ci_high": 0.15438261668357303,
+        "ci_low": -0.23253181264205322,
+        "coef": -0.03504464181268544
+      },
+      "status": "ok",
+      "true_coef": 0.0
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 10,
+      "effect": {
+        "ci_high": 0.22637216931709486,
+        "ci_low": -0.14385434621383572,
+        "coef": 0.0355596864472076
+      },
+      "status": "ok",
+      "true_coef": 0.0
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 11,
+      "effect": {
+        "ci_high": 0.3716129474308147,
+        "ci_low": -0.10574358846122751,
+        "coef": 0.11452404886883169
+      },
+      "status": "ok",
+      "true_coef": 0.0
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 12,
+      "effect": {
+        "ci_high": -0.045657511061446616,
+        "ci_low": -0.43995243817530527,
+        "coef": -0.23627280287672717
+      },
+      "status": "ok",
+      "true_coef": 0.0
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 13,
+      "effect": {
+        "ci_high": 0.25871743155352595,
+        "ci_low": -0.13443040922805555,
+        "coef": 0.06565283259934769
+      },
+      "status": "ok",
+      "true_coef": 0.0
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 14,
+      "effect": {
+        "ci_high": 0.4455477848719589,
+        "ci_low": -0.014701102008399362,
+        "coef": 0.2153615160274013
+      },
+      "status": "ok",
+      "true_coef": 0.0
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 15,
+      "effect": {
+        "ci_high": 0.1604246294880351,
+        "ci_low": -0.32583345609573283,
+        "coef": -0.0548237071182171
+      },
+      "status": "ok",
+      "true_coef": 0.0
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 16,
+      "effect": {
+        "ci_high": 0.2201973962849006,
+        "ci_low": -0.2365807666988257,
+        "coef": 0.010168745730001249
+      },
+      "status": "ok",
+      "true_coef": 0.0
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 17,
+      "effect": {
+        "ci_high": 0.3810966633952958,
+        "ci_low": -0.08125030139545567,
+        "coef": 0.14978624942399088
+      },
+      "status": "ok",
+      "true_coef": 0.0
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 18,
+      "effect": {
+        "ci_high": 0.18408774465934233,
+        "ci_low": -0.24945254161570607,
+        "coef": -0.03690569985842065
+      },
+      "status": "ok",
+      "true_coef": 0.0
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 19,
+      "effect": {
+        "ci_high": 0.43075339650446487,
+        "ci_low": -0.09377131639511928,
+        "coef": 0.1734255760548852
+      },
+      "status": "ok",
+      "true_coef": 0.0
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 20,
+      "effect": {
+        "ci_high": 0.006984061622049586,
+        "ci_low": -0.3894071333818829,
+        "coef": -0.17141430191657184
+      },
+      "status": "ok",
+      "true_coef": 0.0
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 21,
+      "effect": {
+        "ci_high": 0.2527494293722639,
+        "ci_low": -0.1798163785490186,
+        "coef": 0.04088396156932153
+      },
+      "status": "ok",
+      "true_coef": 0.0
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 22,
+      "effect": {
+        "ci_high": 0.22822121629008588,
+        "ci_low": -0.17861763265028494,
+        "coef": 0.009512469839957705
+      },
+      "status": "ok",
+      "true_coef": 0.0
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 23,
+      "effect": {
+        "ci_high": 0.2168146932351651,
+        "ci_low": -0.21416132972454577,
+        "coef": -0.011471297451058463
+      },
+      "status": "ok",
+      "true_coef": 0.0
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 0,
+      "effect": {
+        "ci_high": 1.0646789844471805,
+        "ci_low": 0.5385972821356048,
+        "coef": 0.7622531328780437
+      },
+      "status": "ok",
+      "true_coef": 0.8
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 1,
+      "effect": {
+        "ci_high": 1.5615276841991774,
+        "ci_low": 0.913230207668998,
+        "coef": 1.1772758135409407
+      },
+      "status": "ok",
+      "true_coef": 0.8
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 2,
+      "effect": {
+        "ci_high": 1.0212107366331382,
+        "ci_low": 0.5028563679504355,
+        "coef": 0.7215542383427341
+      },
+      "status": "ok",
+      "true_coef": 0.8
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 3,
+      "effect": {
+        "ci_high": 1.4600571854034041,
+        "ci_low": 0.888752375556803,
+        "coef": 1.115448884300295
+      },
+      "status": "ok",
+      "true_coef": 0.8
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 4,
+      "effect": {
+        "ci_high": 0.8609059085954572,
+        "ci_low": 0.432523805234384,
+        "coef": 0.6235316740050203
+      },
+      "status": "ok",
+      "true_coef": 0.8
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 5,
+      "effect": {
+        "ci_high": 0.8869592167293743,
+        "ci_low": 0.3989185352227307,
+        "coef": 0.6293197478736862
+      },
+      "status": "ok",
+      "true_coef": 0.8
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 6,
+      "effect": {
+        "ci_high": 1.2372089977445717,
+        "ci_low": 0.6557286842826824,
+        "coef": 0.8435031274496626
+      },
+      "status": "ok",
+      "true_coef": 0.8
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 7,
+      "effect": {
+        "ci_high": 1.478056376391193,
+        "ci_low": 0.8121581188367673,
+        "coef": 1.0777672175045645
+      },
+      "status": "ok",
+      "true_coef": 0.8
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 8,
+      "effect": {
+        "ci_high": 1.1203212375311358,
+        "ci_low": 0.6237794621374206,
+        "coef": 0.8498499695117431
+      },
+      "status": "ok",
+      "true_coef": 0.8
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 9,
+      "effect": {
+        "ci_high": 1.1389674983994647,
+        "ci_low": 0.6325667824791396,
+        "coef": 0.8405193091011709
+      },
+      "status": "ok",
+      "true_coef": 0.8
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 10,
+      "effect": {
+        "ci_high": 1.0492401435101102,
+        "ci_low": 0.5669911242820587,
+        "coef": 0.7793412087017302
+      },
+      "status": "ok",
+      "true_coef": 0.8
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 11,
+      "effect": {
+        "ci_high": 1.130250163182941,
+        "ci_low": 0.5258973575727819,
+        "coef": 0.8012497014709841
+      },
+      "status": "ok",
+      "true_coef": 0.8
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 12,
+      "effect": {
+        "ci_high": 0.8620528667941411,
+        "ci_low": 0.4061814585091119,
+        "coef": 0.6470669212666948
+      },
+      "status": "ok",
+      "true_coef": 0.8
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 13,
+      "effect": {
+        "ci_high": 1.3870075775983737,
+        "ci_low": 0.8100921555059389,
+        "coef": 1.044632601243441
+      },
+      "status": "ok",
+      "true_coef": 0.8
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 14,
+      "effect": {
+        "ci_high": 1.372070433038096,
+        "ci_low": 0.7229441447536468,
+        "coef": 1.0146343473478365
+      },
+      "status": "ok",
+      "true_coef": 0.8
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 15,
+      "effect": {
+        "ci_high": 1.034906638073142,
+        "ci_low": 0.5272997002077245,
+        "coef": 0.7591861512634083
+      },
+      "status": "ok",
+      "true_coef": 0.8
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 16,
+      "effect": {
+        "ci_high": 1.1052958229744967,
+        "ci_low": 0.5142138027501908,
+        "coef": 0.7516757039850601
+      },
+      "status": "ok",
+      "true_coef": 0.8
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 17,
+      "effect": {
+        "ci_high": 1.198186583949376,
+        "ci_low": 0.6654807570740375,
+        "coef": 0.908581274615934
+      },
+      "status": "ok",
+      "true_coef": 0.8
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 18,
+      "effect": {
+        "ci_high": 0.9936682783409971,
+        "ci_low": 0.5357302844950785,
+        "coef": 0.7638694666092748
+      },
+      "status": "ok",
+      "true_coef": 0.8
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 19,
+      "effect": {
+        "ci_high": 1.2867588762675177,
+        "ci_low": 0.6923339760256394,
+        "coef": 0.950458981634208
+      },
+      "status": "ok",
+      "true_coef": 0.8
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 20,
+      "effect": {
+        "ci_high": 0.8634366355782198,
+        "ci_low": 0.4061337628864018,
+        "coef": 0.600959335460077
+      },
+      "status": "ok",
+      "true_coef": 0.8
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 21,
+      "effect": {
+        "ci_high": 1.1498678724971174,
+        "ci_low": 0.5849529414392102,
+        "coef": 0.8524205701786024
+      },
+      "status": "ok",
+      "true_coef": 0.8
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 22,
+      "effect": {
+        "ci_high": 1.2038603391898606,
+        "ci_low": 0.5239250674552017,
+        "coef": 0.7701640717554372
+      },
+      "status": "ok",
+      "true_coef": 0.8
+    },
+    {
+      "bootstrap_valid": 200,
+      "dataset_seed": 23,
+      "effect": {
+        "ci_high": 1.3285112140103548,
+        "ci_low": 0.7040908162150015,
+        "coef": 0.9590271039132596
+      },
+      "status": "ok",
+      "true_coef": 0.8
+    }
+  ],
+  "scope": "synthetic calibration only",
+  "summaries": [
+    {
+      "coverage": 0.9583333333333334,
+      "mean_coef": 0.02466397615439272,
+      "true_coef": 0.0,
+      "valid_datasets": 24
+    },
+    {
+      "coverage": 0.8333333333333334,
+      "mean_coef": 0.8435121064147421,
+      "true_coef": 0.8,
+      "valid_datasets": 24
+    }
+  ]
+}

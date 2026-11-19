@@ -1,0 +1,82 @@
+{
+  "basis_results_sha": "600ca18b7ebc3fb9d203033f575df84b775b5477d862c41ed27ccee2b59694b3",
+  "completed_core_study": {
+    "exact_test_gates": 192,
+    "h4_analysis": "artifacts/h4_analysis_test/fcc34b1175a6",
+    "intervention_branches": 1152,
+    "optional_h5_excluded": true,
+    "primary_analysis": "artifacts/test_analysis/af5b72fce0bb",
+    "selection": "artifacts/h4_selection_test/710295bc600c",
+    "test_episodes": 896
+  },
+  "development_analysis": "artifacts/dev_analysis/8b2bc61f4df7",
+  "development_run": "artifacts/dev_rollouts/e93d773ba5f3",
+  "freeze_commit": "5aca84453a411d9c3b8bc824415a0b95d79edd15",
+  "h1_candidate": {
+    "basis": "maximum primary dev point estimate, lexical tie break",
+    "estimate": 0.7576332585820252,
+    "reduction": "mean",
+    "signal": "consistency"
+  },
+  "h3_prototype": {
+    "features": "last support, dispersion, consistency",
+    "interval": "basic paired bootstrap",
+    "sensitivity": "max support lower bound 0.013; mean support interval includes zero; last choice unchanged"
+  },
+  "h4_alarm_protocol_frozen": true,
+  "h4_selection_dev": "artifacts/h4_selection_dev/5ed3daa419de",
+  "h4_threshold": 0.45370636311812385,
+  "heldout_collection_started_after_freeze": true,
+  "heldout_outcomes_accessed": true,
+  "historical_development": {
+    "basis_results_sha": "e534b47b49e9baf9a28db3408e1fc8142c1b07ea3f58f0508c56c3059349b203",
+    "h1_candidate": {
+      "basis": "highest dev primary concordance point estimate",
+      "reduction": "max",
+      "signal": "consistency"
+    },
+    "h3_prototype": {
+      "features": "last values of support, dispersion, consistency",
+      "interval": "basic paired bootstrap",
+      "sensitivity": "support intervals include zero for max and mean"
+    },
+    "h4_alarm_protocol_frozen": false,
+    "h4_development_pilot": {
+      "analysis": "05bb3327bc8c",
+      "branches": 228,
+      "gates_passed": 38,
+      "interpretation": "large risk gap at selected dev states; rollback benefit inconclusive; fixed-state Monte Carlo bounds only",
+      "raw_run": "e1139cfc2fc7"
+    },
+    "h4_development_protocol": "H4_PROTOCOL.md; outcome-blind exact matching; reset-history reconstruction",
+    "heldout_outcomes_accessed": false,
+    "reset_audit": {
+      "full_isolated_development_calibration_required": true,
+      "future_rollout_default": "isolated",
+      "historical_mode": "native cores reused; fixture poses can depend on reset history"
+    },
+    "status": "development choice; preregistration not frozen",
+    "visual_shift": {
+      "brightness": 0.6,
+      "episodes": 192,
+      "noise_sigma": 10.0,
+      "successes": 102
+    }
+  },
+  "protocol_sha256": "8b0ba3a7fafed9fd1c3d9a6832c723a723e4ab371f6fb00724f01535d983ef96",
+  "reset_audit": {
+    "full_isolated_development_calibration_required": false,
+    "future_rollout_default": "isolated",
+    "historical_mode": "native cores reused; fixture poses depend on reset history",
+    "paired_scenes_verified": 192
+  },
+  "status": "core study complete; development choices were prospectively frozen",
+  "test_bank": "artifacts/demo_bank_test/e593d73b3061",
+  "test_rollouts": "artifacts/test_rollouts/a1328f372469",
+  "visual_shift": {
+    "brightness": 0.6,
+    "episodes": 192,
+    "noise_sigma": 10.0,
+    "successes": 102
+  }
+}

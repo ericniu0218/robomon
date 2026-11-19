@@ -1,0 +1,10 @@
+{
+  "analysis_results_sha": "e534b47b49e9baf9a28db3408e1fc8142c1b07ea3f58f0508c56c3059349b203",
+  "files": {
+    "dev_audit_last.png": "ea688952a800f3dd1807ef5466f8702d69eec2994ea1cd93739d73947f1a97f7",
+    "dev_audit_max.png": "4ad67f4c68244058942bd6fb90367c2474984ba7a48b1a509be592556585497e",
+    "dev_task_success.png": "ee47921c7153a17bf3c6fc18ec27b093c744f357c9a43f59d895d668c1ad6a48"
+  },
+  "plot_script_sha": "95e872a60179b5abbfaadab0845af9df539ea749bfa7966067bad07044330a58",
+  "scope": "development only"
+}

@@ -1,0 +1,41 @@
+{
+  "config": {
+    "censoring": "failures have five landmarks; successes three",
+    "datasets": 48,
+    "diagnostic_sha": "ba06125b7f0bd9668cf11f68b5cf30d951fe0ca39f02d1d3bffa4ccedff5727c",
+    "effects": [
+      0.0,
+      1.0
+    ],
+    "n_boot": 1000,
+    "noise": "one standard normal shared by all landmarks/conditions of each unit",
+    "pair_units_per_task": 16,
+    "source_hash": "92230755cb067e372a1b02db9f97ccadc8700181ebf515445757a49800d9c08c",
+    "stage": "concordance_calibration",
+    "tasks": 12
+  },
+  "config_hash": "ea0234bf6fac",
+  "git_sha": "9c1023ae10c6276480cec7e2cb17f56671f4373e",
+  "packages": {
+    "hf-libero": "0.1.4",
+    "huggingface-hub": "1.33.0",
+    "lerobot": "0.7.0",
+    "mujoco": "3.3.7",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "pyarrow": "26.0.1",
+    "robosuite": "1.4.0",
+    "safetensors": "0.8.0",
+    "scipy": "1.18.1",
+    "statsmodels": "0.15.0",
+    "torch": "2.15.0",
+    "torchvision": "0.29.2",
+    "transformers": "5.22.2"
+  },
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.12.13",
+  "source_archive_sha256": "dcfd36e81f1cf43cee3586cc46361854cbe6db08efbc6c85d8ee3d0399d81b31",
+  "source_hash": "92230755cb067e372a1b02db9f97ccadc8700181ebf515445757a49800d9c08c",
+  "stage": "concordance_calibration",
+  "written_at": "2026-11-11T12:57:19-0800"
+}

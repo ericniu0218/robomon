@@ -1,0 +1,33 @@
+{
+  "bootstrap_valid": 1000,
+  "cluster": "pair_id",
+  "coefficients": {
+    "consistency__last": {
+      "ci_high": 1.5012195488644642,
+      "ci_low": 0.8606030430387719,
+      "coef": 1.2436558471340302
+    },
+    "dispersion__last": {
+      "ci_high": 0.2118688007237624,
+      "ci_low": -0.1563106448891476,
+      "coef": 0.034668970566605735
+    },
+    "support__last": {
+      "ci_high": 1.462198216085182,
+      "ci_low": 0.5520841234421872,
+      "coef": 1.0687667904627132
+    }
+  },
+  "interval": "basic",
+  "invalid_reasons": {},
+  "method": "pairwise_conditional_composite_logistic",
+  "n_boot": 1000,
+  "pairs": 6265,
+  "scales": {
+    "consistency__last": 0.43332755171834314,
+    "dispersion__last": 0.03701697668764336,
+    "support__last": 0.07571244380407617
+  },
+  "seed": 20261111,
+  "status": "ok"
+}

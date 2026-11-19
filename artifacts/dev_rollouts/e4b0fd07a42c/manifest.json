@@ -1,0 +1,163 @@
+{
+  "config": {
+    "args": {
+      "brightness": 0.6,
+      "conditions": [
+        "nominal",
+        "shift"
+      ],
+      "episodes": 1,
+      "k": 8,
+      "noise_sigma": 10.0,
+      "render_mode": "always",
+      "seed": 20261110,
+      "shared_prefix": true,
+      "suites": [
+        "libero_spatial"
+      ],
+      "task_ids": [
+        0
+      ],
+      "threads": 4
+    },
+    "checkpoint": "lerobot/smolvla_libero",
+    "checkpoint_revision": "a24f1f380461b665158d52acd140152c79e8b36d",
+    "episodes": [
+      {
+        "brightness": 1.0,
+        "condition": "nominal",
+        "init_state_id": 0,
+        "noise_sigma": 0.0,
+        "seed": 6983315757510167199,
+        "suite": "libero_spatial",
+        "task_id": 0
+      },
+      {
+        "brightness": 0.6,
+        "condition": "shift",
+        "init_state_id": 0,
+        "noise_sigma": 10.0,
+        "seed": 6983315757510167199,
+        "suite": "libero_spatial",
+        "task_id": 0
+      }
+    ],
+    "runtime": {
+      "packages": {
+        "hf-libero": "0.1.4",
+        "huggingface-hub": "1.33.0",
+        "lerobot": "0.7.0",
+        "mujoco": "3.3.7",
+        "numpy": "2.2.6",
+        "pandas": "2.3.3",
+        "pyarrow": "26.0.1",
+        "robosuite": "1.4.0",
+        "safetensors": "0.8.0",
+        "scipy": "1.18.1",
+        "statsmodels": "0.15.0",
+        "torch": "2.15.0",
+        "torchvision": "0.29.2",
+        "transformers": "5.22.2"
+      },
+      "platform": "macOS-26.6.2-arm64-arm-64bit",
+      "python": "3.12.13"
+    },
+    "schema": 1,
+    "source_hash": "7e61f652e7ea6ab2bf2d1f629f88134339ec8853a614f3b5a067666e857d1d4c",
+    "split": {
+      "reserved_dev_task": 0,
+      "seed": 20261110,
+      "suites": {
+        "libero_10": {
+          "dev": [
+            0,
+            6,
+            8
+          ],
+          "test": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "libero_goal": {
+          "dev": [
+            0,
+            1,
+            5
+          ],
+          "test": [
+            2,
+            3,
+            4,
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        "libero_object": {
+          "dev": [
+            0,
+            2,
+            3
+          ],
+          "test": [
+            1,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        "libero_spatial": {
+          "dev": [
+            0,
+            6,
+            7
+          ],
+          "test": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            8,
+            9
+          ]
+        }
+      }
+    },
+    "stage": "dev_rollouts",
+    "vlm_revision": "7b375e1b73b11138ff12fe22c8f2822d8fe03467"
+  },
+  "config_hash": "e4b0fd07a42c",
+  "git_sha": "56e8ecdb3be5e68f136b79e996f52900bae18253",
+  "packages": {
+    "hf-libero": "0.1.4",
+    "huggingface-hub": "1.33.0",
+    "lerobot": "0.7.0",
+    "mujoco": "3.3.7",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "pyarrow": "26.0.1",
+    "robosuite": "1.4.0",
+    "safetensors": "0.8.0",
+    "scipy": "1.18.1",
+    "statsmodels": "0.15.0",
+    "torch": "2.15.0",
+    "torchvision": "0.29.2",
+    "transformers": "5.22.2"
+  },
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.12.13",
+  "source_hash": "7e61f652e7ea6ab2bf2d1f629f88134339ec8853a614f3b5a067666e857d1d4c",
+  "stage": "dev_rollouts",
+  "written_at": "2026-11-10T23:05:30-0800"
+}

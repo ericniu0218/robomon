@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+models/
+scratch/
+artifacts/**
+!artifacts/**/
+!artifacts/**/manifest.json
+!artifacts/**/results.json
+*.tmp
+robotics_work_*.zip

@@ -1,0 +1,15 @@
+Development diagnostic: scheduled vs always-render with identical actions.
+Run on macOS arm64, Python 3.12.13, LeRobot 0.7.0, MuJoCo 3.3.7.
+No STATE lines were emitted: every compared physics state agreed to 1e-10.
+RESET_DIFF 0.0
+OBS 0 {'image': 0, 'image2': 0} EEF 0.0
+OBS 50 {'image': 0, 'image2': 0} EEF 0.0
+OBS 100 {'image': 1, 'image2': 0} EEF 0.0
+ALWAYS_REPEAT 0 image max 0 count 0
+ALWAYS_REPEAT 0 image2 max 0 count 0
+ALWAYS_REPEAT 50 image max 0 count 0
+ALWAYS_REPEAT 50 image2 max 0 count 0
+ALWAYS_REPEAT 100 image max 0 count 0
+ALWAYS_REPEAT 100 image2 max 0 count 0
+ALWAYS_REPEAT 150 image max 0 count 0
+ALWAYS_REPEAT 150 image2 max 0 count 0

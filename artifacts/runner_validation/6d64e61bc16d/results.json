@@ -1,0 +1,42 @@
+{
+  "all_passed": false,
+  "comparisons": [
+    {
+      "brightness": 1.0,
+      "condition": "nominal",
+      "init_state_id": 0,
+      "max_action_difference": 0.0,
+      "max_state_difference": 0.0,
+      "noise_sigma": 0.0,
+      "ours_seconds": 32.32501658401452,
+      "ours_steps": 80,
+      "ours_success": true,
+      "passed": true,
+      "reference_seconds": 30.38579512492288,
+      "reference_steps": 80,
+      "seed": 7649527742044166752,
+      "success": true,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "brightness": 1.0,
+      "condition": "nominal",
+      "init_state_id": 0,
+      "max_action_difference": 0.004893891513347626,
+      "max_state_difference": 0.4344199366649473,
+      "noise_sigma": 0.0,
+      "ours_seconds": 45.23891674994957,
+      "ours_steps": 126,
+      "ours_success": true,
+      "passed": false,
+      "reference_seconds": 32.72349200001918,
+      "reference_steps": 126,
+      "seed": 8961987772630546032,
+      "success": true,
+      "suite": "libero_object",
+      "task_id": 0
+    }
+  ],
+  "complete": false
+}

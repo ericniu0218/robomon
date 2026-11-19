@@ -1,0 +1,22 @@
+{
+  "brightness": 1.0,
+  "condition": "nominal",
+  "episode_id": "libero_object/3/9/8550423671906019752/nominal",
+  "init_state_id": 9,
+  "k": 8,
+  "monitor": true,
+  "monitor_query_seconds": 5.440047248965129,
+  "noise_sigma": 0.0,
+  "pair_id": "libero_object/3/9/8550423671906019752",
+  "queries": 12,
+  "query_interval": 25,
+  "seed": 8550423671906019752,
+  "shared_prefix": true,
+  "steps": 280,
+  "success": false,
+  "suite": "libero_object",
+  "task": "libero_object/3",
+  "task_id": 3,
+  "termination": "timeout",
+  "wall_seconds": 10.387254041968845
+}

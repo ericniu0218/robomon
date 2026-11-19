@@ -1,0 +1,45 @@
+{
+  "config": {
+    "datasets": 24,
+    "diagnostic_sha": "ca454d0200049e70c585e5825fc74fe80f3b4dbee7bb2d5f66b91fb195c9d6cc",
+    "episodes_per_task": 32,
+    "feature_scales": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "landmarks": 3,
+    "n_boot": 200,
+    "source_hash": "52171666c4ad7ad3f9b10c1046294a872e1aa8e11a8ed0d7a8341ac8153e5234",
+    "stage": "conditional_calibration",
+    "tasks": 12,
+    "true_support_coefficients": [
+      0.0,
+      0.8
+    ]
+  },
+  "config_hash": "fa97dab24ace",
+  "git_sha": "9c1023ae10c6276480cec7e2cb17f56671f4373e",
+  "packages": {
+    "hf-libero": "0.1.4",
+    "huggingface-hub": "1.33.0",
+    "lerobot": "0.7.0",
+    "mujoco": "3.3.7",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "pyarrow": "26.0.1",
+    "robosuite": "1.4.0",
+    "safetensors": "0.8.0",
+    "scipy": "1.18.1",
+    "statsmodels": "0.15.0",
+    "torch": "2.15.0",
+    "torchvision": "0.29.2",
+    "transformers": "5.22.2"
+  },
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.12.13",
+  "source_archive_sha256": "f929bafe32bfe5ca7a099b9ad1278337e1c99464655df25d296502d3b98bc986",
+  "source_hash": "52171666c4ad7ad3f9b10c1046294a872e1aa8e11a8ed0d7a8341ac8153e5234",
+  "stage": "conditional_calibration",
+  "written_at": "2026-11-11T12:52:23-0800"
+}

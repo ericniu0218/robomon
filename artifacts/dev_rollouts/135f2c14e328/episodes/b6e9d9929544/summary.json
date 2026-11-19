@@ -1,0 +1,22 @@
+{
+  "brightness": 1.0,
+  "condition": "nominal",
+  "episode_id": "libero_10/0/12/3528223712747844167/nominal",
+  "init_state_id": 12,
+  "k": 8,
+  "monitor": true,
+  "monitor_query_seconds": 4.342800706042908,
+  "noise_sigma": 0.0,
+  "pair_id": "libero_10/0/12/3528223712747844167",
+  "queries": 11,
+  "query_interval": 25,
+  "seed": 3528223712747844167,
+  "shared_prefix": true,
+  "steps": 267,
+  "success": true,
+  "suite": "libero_10",
+  "task": "libero_10/0",
+  "task_id": 0,
+  "termination": "success",
+  "wall_seconds": 9.805526458076201
+}

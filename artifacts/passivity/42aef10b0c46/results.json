@@ -1,0 +1,26 @@
+{
+  "all_passed": true,
+  "comparisons": [
+    {
+      "episode_id": "libero_spatial/0/0/6983315757510167199/nominal",
+      "identical_actions": true,
+      "identical_states": true,
+      "passed": true,
+      "same_success": true,
+      "steps": 81,
+      "with_monitor_seconds": 153.74314841697924,
+      "without_monitor_seconds": 22.04621258296538
+    },
+    {
+      "episode_id": "libero_spatial/0/0/6983315757510167199/shift",
+      "identical_actions": true,
+      "identical_states": true,
+      "passed": true,
+      "same_success": true,
+      "steps": 280,
+      "with_monitor_seconds": 422.53923579200637,
+      "without_monitor_seconds": 71.00654220907018
+    }
+  ],
+  "complete": true
+}

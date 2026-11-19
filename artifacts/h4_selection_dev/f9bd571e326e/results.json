@@ -1,0 +1,612 @@
+{
+  "alarm": {
+    "comparison": ">=",
+    "episodes": 192,
+    "interpolation": "higher",
+    "nominal_episode_alarm_fraction": 0.25,
+    "population": "one maximum per eligible nominal dev episode, all outcomes",
+    "quantile": 0.75,
+    "reduction": "causal running maximum including shadow queries",
+    "signal": "consistency",
+    "threshold": 0.9963464299006517
+  },
+  "coverage": [
+    {
+      "alarms_with_exact_controls": 12,
+      "condition": "nominal",
+      "eligible_episodes": 16,
+      "first_alarms": 12,
+      "selected_pairs": 1,
+      "task": "libero_10/0"
+    },
+    {
+      "alarms_with_exact_controls": 15,
+      "condition": "shift",
+      "eligible_episodes": 16,
+      "first_alarms": 15,
+      "selected_pairs": 1,
+      "task": "libero_10/0"
+    },
+    {
+      "alarms_with_exact_controls": 8,
+      "condition": "nominal",
+      "eligible_episodes": 16,
+      "first_alarms": 8,
+      "selected_pairs": 1,
+      "task": "libero_10/6"
+    },
+    {
+      "alarms_with_exact_controls": 6,
+      "condition": "shift",
+      "eligible_episodes": 16,
+      "first_alarms": 6,
+      "selected_pairs": 1,
+      "task": "libero_10/6"
+    },
+    {
+      "alarms_with_exact_controls": 5,
+      "condition": "nominal",
+      "eligible_episodes": 16,
+      "first_alarms": 5,
+      "selected_pairs": 1,
+      "task": "libero_10/8"
+    },
+    {
+      "alarms_with_exact_controls": 9,
+      "condition": "shift",
+      "eligible_episodes": 16,
+      "first_alarms": 9,
+      "selected_pairs": 1,
+      "task": "libero_10/8"
+    },
+    {
+      "alarms_with_exact_controls": 1,
+      "condition": "nominal",
+      "eligible_episodes": 16,
+      "first_alarms": 1,
+      "selected_pairs": 1,
+      "task": "libero_goal/0"
+    },
+    {
+      "alarms_with_exact_controls": 0,
+      "condition": "shift",
+      "eligible_episodes": 16,
+      "first_alarms": 0,
+      "selected_pairs": 0,
+      "task": "libero_goal/0"
+    },
+    {
+      "alarms_with_exact_controls": 0,
+      "condition": "nominal",
+      "eligible_episodes": 16,
+      "first_alarms": 0,
+      "selected_pairs": 0,
+      "task": "libero_goal/1"
+    },
+    {
+      "alarms_with_exact_controls": 0,
+      "condition": "shift",
+      "eligible_episodes": 16,
+      "first_alarms": 0,
+      "selected_pairs": 0,
+      "task": "libero_goal/1"
+    },
+    {
+      "alarms_with_exact_controls": 1,
+      "condition": "nominal",
+      "eligible_episodes": 16,
+      "first_alarms": 1,
+      "selected_pairs": 1,
+      "task": "libero_goal/5"
+    },
+    {
+      "alarms_with_exact_controls": 1,
+      "condition": "shift",
+      "eligible_episodes": 16,
+      "first_alarms": 1,
+      "selected_pairs": 1,
+      "task": "libero_goal/5"
+    },
+    {
+      "alarms_with_exact_controls": 8,
+      "condition": "nominal",
+      "eligible_episodes": 16,
+      "first_alarms": 8,
+      "selected_pairs": 1,
+      "task": "libero_object/0"
+    },
+    {
+      "alarms_with_exact_controls": 13,
+      "condition": "shift",
+      "eligible_episodes": 16,
+      "first_alarms": 13,
+      "selected_pairs": 1,
+      "task": "libero_object/0"
+    },
+    {
+      "alarms_with_exact_controls": 3,
+      "condition": "nominal",
+      "eligible_episodes": 16,
+      "first_alarms": 3,
+      "selected_pairs": 1,
+      "task": "libero_object/2"
+    },
+    {
+      "alarms_with_exact_controls": 9,
+      "condition": "shift",
+      "eligible_episodes": 16,
+      "first_alarms": 9,
+      "selected_pairs": 1,
+      "task": "libero_object/2"
+    },
+    {
+      "alarms_with_exact_controls": 4,
+      "condition": "nominal",
+      "eligible_episodes": 16,
+      "first_alarms": 4,
+      "selected_pairs": 1,
+      "task": "libero_object/3"
+    },
+    {
+      "alarms_with_exact_controls": 11,
+      "condition": "shift",
+      "eligible_episodes": 16,
+      "first_alarms": 11,
+      "selected_pairs": 1,
+      "task": "libero_object/3"
+    },
+    {
+      "alarms_with_exact_controls": 3,
+      "condition": "nominal",
+      "eligible_episodes": 16,
+      "first_alarms": 3,
+      "selected_pairs": 1,
+      "task": "libero_spatial/0"
+    },
+    {
+      "alarms_with_exact_controls": 1,
+      "condition": "shift",
+      "eligible_episodes": 16,
+      "first_alarms": 3,
+      "selected_pairs": 1,
+      "task": "libero_spatial/0"
+    },
+    {
+      "alarms_with_exact_controls": 0,
+      "condition": "nominal",
+      "eligible_episodes": 16,
+      "first_alarms": 0,
+      "selected_pairs": 0,
+      "task": "libero_spatial/6"
+    },
+    {
+      "alarms_with_exact_controls": 0,
+      "condition": "shift",
+      "eligible_episodes": 16,
+      "first_alarms": 1,
+      "selected_pairs": 0,
+      "task": "libero_spatial/6"
+    },
+    {
+      "alarms_with_exact_controls": 3,
+      "condition": "nominal",
+      "eligible_episodes": 16,
+      "first_alarms": 3,
+      "selected_pairs": 1,
+      "task": "libero_spatial/7"
+    },
+    {
+      "alarms_with_exact_controls": 5,
+      "condition": "shift",
+      "eligible_episodes": 16,
+      "first_alarms": 5,
+      "selected_pairs": 1,
+      "task": "libero_spatial/7"
+    }
+  ],
+  "matches": [
+    {
+      "alarm": {
+        "condition": "nominal",
+        "episode_id": "libero_10/0/11/9045606508042735248/nominal",
+        "horizon": 520,
+        "landmark": 100,
+        "pair_id": "libero_10/0/11/9045606508042735248",
+        "score": 1.4757095081697618,
+        "task": "libero_10/0"
+      },
+      "control": {
+        "condition": "nominal",
+        "episode_id": "libero_10/0/1/8858455123950312348/nominal",
+        "horizon": 520,
+        "landmark": 100,
+        "pair_id": "libero_10/0/1/8858455123950312348",
+        "score": 0.42877015567173205,
+        "task": "libero_10/0"
+      },
+      "match_id": "9fe54b6bb891"
+    },
+    {
+      "alarm": {
+        "condition": "shift",
+        "episode_id": "libero_10/0/13/2444403432247846453/shift",
+        "horizon": 520,
+        "landmark": 100,
+        "pair_id": "libero_10/0/13/2444403432247846453",
+        "score": 1.4224988468923434,
+        "task": "libero_10/0"
+      },
+      "control": {
+        "condition": "shift",
+        "episode_id": "libero_10/0/12/3528223712747844167/shift",
+        "horizon": 520,
+        "landmark": 100,
+        "pair_id": "libero_10/0/12/3528223712747844167",
+        "score": 0.35835869457353003,
+        "task": "libero_10/0"
+      },
+      "match_id": "f8c061799ab4"
+    },
+    {
+      "alarm": {
+        "condition": "nominal",
+        "episode_id": "libero_10/6/8/6782596543919675628/nominal",
+        "horizon": 520,
+        "landmark": 50,
+        "pair_id": "libero_10/6/8/6782596543919675628",
+        "score": 1.1629728503103272,
+        "task": "libero_10/6"
+      },
+      "control": {
+        "condition": "nominal",
+        "episode_id": "libero_10/6/5/77926987577396069/nominal",
+        "horizon": 520,
+        "landmark": 50,
+        "pair_id": "libero_10/6/5/77926987577396069",
+        "score": 0.28334206258940847,
+        "task": "libero_10/6"
+      },
+      "match_id": "a604e05ffe61"
+    },
+    {
+      "alarm": {
+        "condition": "shift",
+        "episode_id": "libero_10/6/15/2673069024199307907/shift",
+        "horizon": 520,
+        "landmark": 100,
+        "pair_id": "libero_10/6/15/2673069024199307907",
+        "score": 1.2100093144027366,
+        "task": "libero_10/6"
+      },
+      "control": {
+        "condition": "shift",
+        "episode_id": "libero_10/6/1/7222146430738565936/shift",
+        "horizon": 520,
+        "landmark": 100,
+        "pair_id": "libero_10/6/1/7222146430738565936",
+        "score": 0.3321970637121613,
+        "task": "libero_10/6"
+      },
+      "match_id": "cea4576705ce"
+    },
+    {
+      "alarm": {
+        "condition": "nominal",
+        "episode_id": "libero_10/8/3/679937630992262150/nominal",
+        "horizon": 520,
+        "landmark": 350,
+        "pair_id": "libero_10/8/3/679937630992262150",
+        "score": 1.1548776409433839,
+        "task": "libero_10/8"
+      },
+      "control": {
+        "condition": "nominal",
+        "episode_id": "libero_10/8/11/5634695413476793074/nominal",
+        "horizon": 520,
+        "landmark": 350,
+        "pair_id": "libero_10/8/11/5634695413476793074",
+        "score": 0.5681572414979189,
+        "task": "libero_10/8"
+      },
+      "match_id": "39dd4ebf056e"
+    },
+    {
+      "alarm": {
+        "condition": "shift",
+        "episode_id": "libero_10/8/12/8534183313631184142/shift",
+        "horizon": 520,
+        "landmark": 300,
+        "pair_id": "libero_10/8/12/8534183313631184142",
+        "score": 1.0999621260993735,
+        "task": "libero_10/8"
+      },
+      "control": {
+        "condition": "shift",
+        "episode_id": "libero_10/8/13/895251189683068977/shift",
+        "horizon": 520,
+        "landmark": 300,
+        "pair_id": "libero_10/8/13/895251189683068977",
+        "score": 0.823173761391026,
+        "task": "libero_10/8"
+      },
+      "match_id": "4fbf02dd04bc"
+    },
+    {
+      "alarm": {
+        "condition": "nominal",
+        "episode_id": "libero_goal/0/15/5008407076740692224/nominal",
+        "horizon": 300,
+        "landmark": 100,
+        "pair_id": "libero_goal/0/15/5008407076740692224",
+        "score": 1.4007092589665124,
+        "task": "libero_goal/0"
+      },
+      "control": {
+        "condition": "nominal",
+        "episode_id": "libero_goal/0/8/7132046587678432552/nominal",
+        "horizon": 300,
+        "landmark": 100,
+        "pair_id": "libero_goal/0/8/7132046587678432552",
+        "score": 0.39574253991100744,
+        "task": "libero_goal/0"
+      },
+      "match_id": "9764f2b578ca"
+    },
+    {
+      "alarm": {
+        "condition": "nominal",
+        "episode_id": "libero_goal/5/13/1110058620043046545/nominal",
+        "horizon": 300,
+        "landmark": 100,
+        "pair_id": "libero_goal/5/13/1110058620043046545",
+        "score": 1.0166783007036018,
+        "task": "libero_goal/5"
+      },
+      "control": {
+        "condition": "nominal",
+        "episode_id": "libero_goal/5/0/3592013770308414776/nominal",
+        "horizon": 300,
+        "landmark": 100,
+        "pair_id": "libero_goal/5/0/3592013770308414776",
+        "score": 0.41483995149533465,
+        "task": "libero_goal/5"
+      },
+      "match_id": "d5c4eddd70c5"
+    },
+    {
+      "alarm": {
+        "condition": "shift",
+        "episode_id": "libero_goal/5/14/4842838329718431962/shift",
+        "horizon": 300,
+        "landmark": 100,
+        "pair_id": "libero_goal/5/14/4842838329718431962",
+        "score": 1.1386297544888488,
+        "task": "libero_goal/5"
+      },
+      "control": {
+        "condition": "shift",
+        "episode_id": "libero_goal/5/4/2266771265198006824/shift",
+        "horizon": 300,
+        "landmark": 100,
+        "pair_id": "libero_goal/5/4/2266771265198006824",
+        "score": 0.29814681916730157,
+        "task": "libero_goal/5"
+      },
+      "match_id": "eee4e4566996"
+    },
+    {
+      "alarm": {
+        "condition": "nominal",
+        "episode_id": "libero_object/0/13/3816087687183175799/nominal",
+        "horizon": 280,
+        "landmark": 100,
+        "pair_id": "libero_object/0/13/3816087687183175799",
+        "score": 1.392057391480133,
+        "task": "libero_object/0"
+      },
+      "control": {
+        "condition": "nominal",
+        "episode_id": "libero_object/0/6/4705120919054386069/nominal",
+        "horizon": 280,
+        "landmark": 100,
+        "pair_id": "libero_object/0/6/4705120919054386069",
+        "score": 0.14764214762840924,
+        "task": "libero_object/0"
+      },
+      "match_id": "42f55d019c7d"
+    },
+    {
+      "alarm": {
+        "condition": "shift",
+        "episode_id": "libero_object/0/2/828523291878779775/shift",
+        "horizon": 280,
+        "landmark": 100,
+        "pair_id": "libero_object/0/2/828523291878779775",
+        "score": 1.3837108160008633,
+        "task": "libero_object/0"
+      },
+      "control": {
+        "condition": "shift",
+        "episode_id": "libero_object/0/12/890767918842594926/shift",
+        "horizon": 280,
+        "landmark": 100,
+        "pair_id": "libero_object/0/12/890767918842594926",
+        "score": 0.24066104989691456,
+        "task": "libero_object/0"
+      },
+      "match_id": "7e0f9fb04fcf"
+    },
+    {
+      "alarm": {
+        "condition": "nominal",
+        "episode_id": "libero_object/2/15/4351803460117948045/nominal",
+        "horizon": 280,
+        "landmark": 50,
+        "pair_id": "libero_object/2/15/4351803460117948045",
+        "score": 1.2578857166732558,
+        "task": "libero_object/2"
+      },
+      "control": {
+        "condition": "nominal",
+        "episode_id": "libero_object/2/11/7401377329800646057/nominal",
+        "horizon": 280,
+        "landmark": 50,
+        "pair_id": "libero_object/2/11/7401377329800646057",
+        "score": 0.34133651364112044,
+        "task": "libero_object/2"
+      },
+      "match_id": "8f0eacd0a48e"
+    },
+    {
+      "alarm": {
+        "condition": "shift",
+        "episode_id": "libero_object/2/6/7302532265866006638/shift",
+        "horizon": 280,
+        "landmark": 100,
+        "pair_id": "libero_object/2/6/7302532265866006638",
+        "score": 1.179281042417055,
+        "task": "libero_object/2"
+      },
+      "control": {
+        "condition": "shift",
+        "episode_id": "libero_object/2/0/6089969868496037194/shift",
+        "horizon": 280,
+        "landmark": 100,
+        "pair_id": "libero_object/2/0/6089969868496037194",
+        "score": 0.42704105964258016,
+        "task": "libero_object/2"
+      },
+      "match_id": "3e17e0b0cf75"
+    },
+    {
+      "alarm": {
+        "condition": "nominal",
+        "episode_id": "libero_object/3/8/6492663389184097198/nominal",
+        "horizon": 280,
+        "landmark": 100,
+        "pair_id": "libero_object/3/8/6492663389184097198",
+        "score": 1.3801102705749249,
+        "task": "libero_object/3"
+      },
+      "control": {
+        "condition": "nominal",
+        "episode_id": "libero_object/3/7/3328031032707339041/nominal",
+        "horizon": 280,
+        "landmark": 100,
+        "pair_id": "libero_object/3/7/3328031032707339041",
+        "score": 0.20769981770010956,
+        "task": "libero_object/3"
+      },
+      "match_id": "0ed6e753bed4"
+    },
+    {
+      "alarm": {
+        "condition": "shift",
+        "episode_id": "libero_object/3/13/161612903106166528/shift",
+        "horizon": 280,
+        "landmark": 100,
+        "pair_id": "libero_object/3/13/161612903106166528",
+        "score": 1.2186813011834332,
+        "task": "libero_object/3"
+      },
+      "control": {
+        "condition": "shift",
+        "episode_id": "libero_object/3/10/4075201377622499855/shift",
+        "horizon": 280,
+        "landmark": 100,
+        "pair_id": "libero_object/3/10/4075201377622499855",
+        "score": 0.1333566759758615,
+        "task": "libero_object/3"
+      },
+      "match_id": "e460bf8481d4"
+    },
+    {
+      "alarm": {
+        "condition": "nominal",
+        "episode_id": "libero_spatial/0/2/1508152594704719135/nominal",
+        "horizon": 280,
+        "landmark": 50,
+        "pair_id": "libero_spatial/0/2/1508152594704719135",
+        "score": 1.1288966823452318,
+        "task": "libero_spatial/0"
+      },
+      "control": {
+        "condition": "nominal",
+        "episode_id": "libero_spatial/0/8/7717156682606532898/nominal",
+        "horizon": 280,
+        "landmark": 50,
+        "pair_id": "libero_spatial/0/8/7717156682606532898",
+        "score": 0.441093407118352,
+        "task": "libero_spatial/0"
+      },
+      "match_id": "9eb1041451ab"
+    },
+    {
+      "alarm": {
+        "condition": "shift",
+        "episode_id": "libero_spatial/0/9/746505839580300895/shift",
+        "horizon": 280,
+        "landmark": 50,
+        "pair_id": "libero_spatial/0/9/746505839580300895",
+        "score": 1.2684609258329762,
+        "task": "libero_spatial/0"
+      },
+      "control": {
+        "condition": "shift",
+        "episode_id": "libero_spatial/0/11/4951893933232369987/shift",
+        "horizon": 280,
+        "landmark": 50,
+        "pair_id": "libero_spatial/0/11/4951893933232369987",
+        "score": 0.20383826619823456,
+        "task": "libero_spatial/0"
+      },
+      "match_id": "95f59399d376"
+    },
+    {
+      "alarm": {
+        "condition": "nominal",
+        "episode_id": "libero_spatial/7/8/3959098230253888230/nominal",
+        "horizon": 280,
+        "landmark": 100,
+        "pair_id": "libero_spatial/7/8/3959098230253888230",
+        "score": 1.2537563154558713,
+        "task": "libero_spatial/7"
+      },
+      "control": {
+        "condition": "nominal",
+        "episode_id": "libero_spatial/7/6/4249195909989155848/nominal",
+        "horizon": 280,
+        "landmark": 100,
+        "pair_id": "libero_spatial/7/6/4249195909989155848",
+        "score": 0.27366350664371003,
+        "task": "libero_spatial/7"
+      },
+      "match_id": "b63ee3a634d8"
+    },
+    {
+      "alarm": {
+        "condition": "shift",
+        "episode_id": "libero_spatial/7/11/2428867666156136244/shift",
+        "horizon": 280,
+        "landmark": 100,
+        "pair_id": "libero_spatial/7/11/2428867666156136244",
+        "score": 1.2357378566437942,
+        "task": "libero_spatial/7"
+      },
+      "control": {
+        "condition": "shift",
+        "episode_id": "libero_spatial/7/3/5678032417120911198/shift",
+        "horizon": 280,
+        "landmark": 100,
+        "pair_id": "libero_spatial/7/3/5678032417120911198",
+        "score": 0.2796194016617536,
+        "task": "libero_spatial/7"
+      },
+      "match_id": "347566c540f8"
+    }
+  ],
+  "max_pairs_per_cell": 1,
+  "no_source_pair_reuse_across_conditions": true,
+  "scope": "development only; no confirmatory H4 claim",
+  "seed": 20261111
+}
