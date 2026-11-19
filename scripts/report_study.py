@@ -38,6 +38,144 @@ def interval(row):
     return f"{number(row.get('estimate', row.get('coef')))} [{number(row.get('ci_low'))}, {number(row.get('ci_high'))}]"
 
 
+def render_summary(primary, h4):
+    """Describe the completed study in plain language using its frozen results."""
+    h1 = primary["h1"]
+    rates = h4["rates"]
+    signal = {
+        "consistency": "plan-change",
+        "dispersion": "plan-disagreement",
+        "support": "reference-distance",
+    }[h1["signal"]]
+    history = {"mean": "average", "max": "highest", "last": "latest"}[
+        h1["reduction"]
+    ]
+    return "\n".join(
+        [
+            "# RoboMon — Robot Failure Monitoring",
+            "",
+            "## Question",
+            "",
+            "Can simple warning scores predict robot failure beyond knowing the task and how long the robot has been trying? Can acting on those warnings help it recover?",
+            "",
+            "## What I built",
+            "",
+            "I built an evaluation pipeline around SmolVLA, an existing robot-control model, and LIBERO, a simulated robot benchmark. It records robot behavior and measures four signals: elapsed time, disagreement among possible movement plans, changes in plans over time, and distance from reference demonstrations.",
+            "",
+            "## How I tested it",
+            "",
+            f"- Used **384 development attempts** to choose settings, then fixed the study rules before **{primary['episodes']:,} evaluation attempts** on 28 separate tasks with normal and degraded camera images.",
+            "- Compared ongoing attempts at the **same task, camera condition, and timestep** to separate warning information from task difficulty and elapsed time.",
+            f"- Ran **{h4['branches']:,} alternative continuations** from {h4['states']} selected alarm/control states, comparing fresh replanning with rewinding 50 actions. Both strategies received the same remaining action budget.",
+            f"- Found a simulator reset bug that changed fixture positions. I corrected the reset procedure and verified exact replay for all {h4['gates_passed']} selected states before testing interventions.",
+            "",
+            "## Main findings",
+            "",
+            f"- **Useful warnings:** The {history} {signal} score ranked failed attempts above successful ones in **{h1['estimate']:.1%} of matched comparisons** (95% interval: {h1['ci_low']:.1%}–{h1['ci_high']:.1%}).",
+            "- **Reference similarity added information:** Distance from demonstrations remained associated with failure after accounting for both plan-disagreement signals in the statistical model.",
+            f"- **Alarms identified difficult states:** Fresh replanning succeeded in **{rates['alarm_replan']:.1%}** of alarm-state continuations versus **{rates['control_replan']:.1%}** at matched controls.",
+            f"- **Recovery remains unresolved:** Rewinding raised observed alarm-state success to **{rates['alarm_rollback']:.1%}**, but the uncertainty was too large to establish a reliable improvement.",
+            "",
+            "![Warning quality and intervention effects](figures/summary_results.png)",
+            "",
+            "Left: warning quality after matching; 50% is chance. Right: differences in success rates; crossing zero leaves the benefit uncertain. Bars show 95% intervals; recovery bounds apply only to the selected states.",
+            "",
+            "## Limits",
+            "",
+            "This is an independent study of one pretrained model in simulation. Evaluation tasks were held out from monitor tuning but were familiar to the policy. Recovery results concern the selected states; physical-robot recovery and safety were not tested.",
+            "",
+            "[Full report and figures](FINAL_REPORT.md) · [Study methods](CONFIRMATORY_METHODS.md)",
+            "",
+        ]
+    )
+
+
+def plot_summary(primary, h4, protocol, path):
+    """Compact overview of matched prediction and paired intervention results."""
+    fig, axes = plt.subplots(1, 2, figsize=(10, 3.1))
+    labels = []
+    for y, (signal, label) in enumerate(
+        (
+            ("elapsed", "Time alone"),
+            ("dispersion", "Plan disagreement"),
+            ("support", "Reference distance"),
+            ("consistency", "Plan changes"),
+        )
+    ):
+        labels.append(label)
+        reduction = (
+            "max"
+            if signal == "elapsed"
+            else protocol["per_signal_reductions"][signal]["reduction"]
+        )
+        row = next(
+            row
+            for row in primary["audit"]
+            if row["matching"] == "time_task_condition"
+            and row["signal"] == signal
+            and row["reduction"] == reduction
+        )
+        axes[0].errorbar(
+            100 * row["estimate"],
+            y,
+            xerr=[
+                [100 * (row["estimate"] - row["ci_low"])],
+                [100 * (row["ci_high"] - row["estimate"])],
+            ],
+            fmt="o",
+            color=COLORS[signal],
+            markersize=6,
+            capsize=3,
+            lw=2,
+        )
+    axes[0].axvline(50, color="0.6", ls="--", lw=1)
+    axes[0].set(
+        yticks=range(4),
+        yticklabels=labels,
+        xticks=[50, 60, 70, 80],
+        xlim=(45, 83),
+        ylim=(-0.5, 3.5),
+        xlabel="Failure-ranking score (%)",
+        title="A. Warning quality",
+    )
+    for y, name, color in (
+        (1, "h4a_control_minus_alarm_replan", COLORS["consistency"]),
+        (0, "h4b_alarm_rollback_minus_replan", COLORS["dispersion"]),
+    ):
+        row = h4["contrasts"][name]
+        axes[1].errorbar(
+            100 * row["estimate"],
+            y,
+            xerr=[
+                [100 * (row["estimate"] - row["ci_low"])],
+                [100 * (row["ci_high"] - row["estimate"])],
+            ],
+            fmt="o",
+            color=color,
+            markersize=6,
+            capsize=3,
+            lw=2,
+        )
+    axes[1].axvline(0, color="0.6", ls="--", lw=1)
+    axes[1].set(
+        yticks=[0, 1],
+        yticklabels=["Rewind vs replan\n(at alarms)", "Control vs alarm\n(fresh replanning)"],
+        xticks=[0, 25, 50, 75],
+        xlim=(-15, 85),
+        ylim=(-0.65, 1.65),
+        xlabel="Success difference (percentage points)",
+        title="B. Intervention effects",
+    )
+    for axis in axes:
+        axis.spines[["top", "right"]].set_visible(False)
+        axis.tick_params(labelsize=10)
+        axis.set_axisbelow(True)
+        axis.grid(axis="x", color="0.92", lw=0.7)
+    fig.subplots_adjust(left=0.16, right=0.98, bottom=0.23, top=0.83, wspace=0.95)
+    fig.savefig(path, dpi=180)
+    plt.close(fig)
+
+
 def plot_audit(primary, protocol, path):
     fig, axis = plt.subplots(figsize=(10, 6))
     levels = [
@@ -260,10 +398,12 @@ def main():
         figures / "final_audit.png",
         figures / "final_h3.png",
         figures / "final_h4.png",
+        figures / "summary_results.png",
     ]
     plot_audit(primary, protocol, paths[0])
     plot_h3(primary, paths[1])
     plot_h4(h4, paths[2])
+    plot_summary(primary, h4, protocol, paths[3])
     decisions = h4["sequence_decisions"]
     supported = [
         row["hypothesis"] for row in decisions if row["decision"] == "supported"
@@ -417,39 +557,8 @@ def main():
     ]
     destination = ROOT / "FINAL_REPORT.md"
     destination.write_text("\n".join(lines))
-    labels = {row["hypothesis"]: row["decision"].replace("_", " ") for row in decisions}
-    clock = next(
-        row
-        for row in primary["audit"]
-        if row["signal"] == "elapsed" and row["matching"] == "naive"
-    )
-    support = (primary["h3"].get("coefficients") or {}).get("support__last", {})
-    contrasts = h4["contrasts"]
-    summary = [
-        "# RoboMon — one-page core-study summary",
-        "",
-        "**Question:** how much do simple VLA failure signals predict after controlling elapsed time, task and visual condition, and do selected alarms identify states where oracle rollback helps?",
-        "",
-        "**Design:** SmolVLA / LIBERO; 384 isolated-reset development episodes, then a prospectively frozen 896-episode monitor-test set (28 tasks × two conditions × 16 paired initial states/seeds). All 448 paired initial scenes agree exactly. The policy was trained on these tasks; holdout concerns monitor tuning. H2 is descriptive and optional H5 was excluded before testing.",
-        "",
-        "| Frozen hypothesis | Estimate [two-sided 95% interval/bound] | Sequence decision |",
-        "|---|---|---|",
-        f"| H1: {protocol['h1']['reduction']} {protocol['h1']['signal']}, primary matched concordance | {interval(primary['h1'])} | {labels['H1']} |",
-        f"| H3: last support, conditional coefficient per dev SD | {interval(support)} | {labels['H3']} |",
-        f"| H4a: control − alarm fresh-replan success | {interval(contrasts['h4a_control_minus_alarm_replan'])} | {labels['H4a']} |",
-        f"| H4b: alarm rollback − replan success | {interval(contrasts['h4b_alarm_rollback_minus_replan'])} | {labels['H4b']} |",
-        "",
-        f"The elapsed-time baseline has naive episode AUROC {number(clock['estimate'])} and exactly 0.500 after time matching. The primary estimate concerns within-task/condition/time association. The support result concerns a conditional working model with last-value dispersion and consistency; it does not establish causal training-data knowledge. H1 and H3 use 2,000 paired-unit bootstrap draws, with approximate coverage.",
-        "",
-        f"Outcome-blind frozen matching selected {h4['matched_sets']} sets / {h4['states']} states. All {h4['gates_passed']} exact original-tail replay gates preceded {h4['branches']:,} experimental branches. Three independent paired seed blocks share noise across both states and both arms. Both arms have equal remaining forward-action budgets; rollback restores 50 earlier actions. H4's conservative bounds cover Monte Carlo noise only at the fixed selected states. An interval spanning zero does not establish zero benefit.",
-        "",
-        "**Interpretation:** positive hypotheses are established only along H1 → H3 → H4a → H4b until the first failed or inconclusive test. Later intervals are descriptive. Results concern one checkpoint, simulator, task set, pinned bank and visual condition. Oracle rollback is simulation-only; physical recovery costs and real-robot safety were not measured. Historical reset-history cohorts are excluded from these estimates.",
-        "",
-        f"**Reproducibility:** freeze `{protocol['_freeze_commit']}` preceded held-out outcomes. The reset audit caught fixture motion outside saved physics; isolated cores and exact gates address it. [Full report and figures](FINAL_REPORT.md), [prospective methods](CONFIRMATORY_METHODS.md), [freeze receipt](protocol_freeze.json).",
-        "",
-    ]
     summary_path = ROOT / "SUMMARY.md"
-    summary_path.write_text("\n".join(summary))
+    summary_path.write_text(render_summary(primary, h4))
     provenance = {
         "protocol_sha": protocol["_protocol_sha256"],
         "freeze_commit": protocol["_freeze_commit"],

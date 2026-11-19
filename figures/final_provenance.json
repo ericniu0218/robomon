@@ -18,5 +18,24 @@
   "report_sha": "942c2657e8f48ab636743fced65bb531b9dbbe69be13a87ca2e7fdfaae8dd3fa",
   "selection_manifest_sha": "3520c876d93a69cd7504aab7ed4bebfbb5494cfed2bde4936406f036ae159d36",
   "selection_results_sha": "59fdff3a1ef0997a7b272c8235f3d959c35348316faff4df7ca7d317aabe49b9",
-  "summary_sha": "53e50247dd28f17afae49ce0dc71c306826cd38f1033178f64ce200be1d83404"
+  "summary_revision": {
+    "date": "2026-11-19",
+    "description": "Added compact warning-quality and intervention figures from frozen results. Original report and full-size figures are unchanged.",
+    "files": {
+      "summary_results.png": "96aa0ad2da9b4ff4c2893a45632971ac44dcda6ced6cf2912cfb0ebabfc87792"
+    },
+    "previous_revision": {
+      "date": "2026-11-19",
+      "description": "Plain-language editorial rewrite using the same frozen results. Original report and figure rendering provenance is unchanged.",
+      "previous_summary_sha": "53e50247dd28f17afae49ce0dc71c306826cd38f1033178f64ce200be1d83404",
+      "report_script_sha": "8b2d0064eae7855c6527b90c1a0a8c6362e410b6f816f8f4fe7b37a0fbffeb53"
+    },
+    "previous_summary_sha": "c923e48f0b04c294a36dd254c47f85a405a2cb94302802c3024883f8e934f27c",
+    "render_runtime": {
+      "matplotlib": "3.11.2",
+      "numpy": "2.2.6"
+    },
+    "report_script_sha": "9fc5518b60f5c035846cf957dcfecdcc1e52845e1f65b061089d04bca8cc0180"
+  },
+  "summary_sha": "31015c13f8aaddf1230e540065769b5b465fd745282bd968e0ce5ca3da55cc52"
 }
